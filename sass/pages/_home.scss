@@ -1,0 +1,219 @@
+@use "../abstracts/variables" as c;
+
+#main-home {
+    h3 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    img {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    #roles-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        p {
+            margin-bottom: 30px;
+            &:not(.role-text) {
+                border-right: 1px solid white;
+            }
+        }
+    }
+}
+
+.link-button {
+    color: white;
+    &:visited {
+        color: white;
+    }
+}
+
+.role-text {
+    cursor: pointer;
+}
+
+#chibi-quote {
+    display: none;
+    background-color: c.$green;
+    border-radius: 10px;
+    padding: 22px 17px;
+    margin-bottom: 30px;
+}
+
+#chibi-home {
+    justify-self: center;
+}
+
+#mobile-headshot {
+    max-height: 186px;
+}
+
+#homepage-buttons {
+    margin-bottom: 30px;
+    .link-button {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 25px;
+        background-color: c.$green;
+        border: 1px solid c.$green;
+        border-radius: 43px;
+        text-align: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+        &:hover {
+            background-color: white;
+            color: c.$green;
+        }
+    }
+}
+
+#info-area {
+    display: none;
+}
+
+#demo-reel {
+    text-align: center;
+    margin-bottom: 50px;
+    p, a {
+        color: white;
+        cursor: pointer;
+        text-decoration: underline;
+        &:hover {
+            color: c.$green;
+            transition: all 0.5s ease-in-out;
+        }
+        &:visited {
+            color: white;
+            &:hover {
+                color: c.$green;
+                transition: all 0.5s ease-in-out;
+            }
+        }
+    }
+}
+
+#demo-lb {
+    position: absolute;
+    display: none;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    .grid-con {
+        margin: 0;
+        grid-column: 2;
+    }
+}
+
+video {
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    #mobile-headshot {
+        display: none!important;
+    }
+
+    #chibi-home {
+        transform: scaleX(-1);
+        justify-self: flex-end;
+    }
+
+    #mobile-name {
+        display: none;
+    }
+
+    #greeting {
+        display: flex;
+        justify-content: center;
+        align-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    #chibi-quote {
+        text-align: right;
+        margin-bottom: 0;
+    }
+
+    #greeting, #chibi-home {
+        order: 1;
+    }
+
+    #homepage-buttons {
+        margin-bottom: 50px;
+    }
+
+    #roles-mobile {
+        display: none!important;
+    }
+
+    #info-area {
+        background-color: c.$green;
+        border: 1px solid c.$green;
+        border-radius: 30px;
+        display: flex;
+        order: 1;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 60px;
+        #profile-image {
+            max-width: 128px;
+            display: flex;
+            justify-content: center;
+            img {
+                padding-top: 10px;
+            }
+        }
+        #profile-text {
+            padding-top: 20px;
+        }
+        
+        #roles-bigger {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            p {
+                margin-bottom: 30px;
+                &:not(.role-divider) {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+                &:not(.role-text) {
+                    border-right: 1px solid white;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #info-area {
+        justify-content: center;
+        #profile-image {
+            max-width: 204px;
+        }
+        div {
+            h3 {
+                padding-top: 30px;
+                margin-bottom: 50px;
+            }
+        }
+
+        #profile-text {
+            padding-top: 0px;
+        }
+        #roles-bigger {
+            p {
+                &:not(.role-divider) {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+}

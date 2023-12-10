@@ -1,0 +1,48 @@
+#wtp-box {
+    margin-bottom: 30px;
+    height: 720px;
+    background-image: url(/images/WTP-images/background.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#pokemon-box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    img {
+        padding-right: 12%;
+        padding-bottom: 20%;
+    }
+}
+
+#pokemon-name {
+    display: none;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    p {
+        font-size: 80px;
+        padding-bottom: 20%;
+        -webkit-text-fill-color: #ffcb05;
+        -webkit-text-stroke-width: 2.5px;
+        -webkit-text-stroke-color: #2a75bb;
+    }
+}
+
+#answer-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    cursor: pointer;
+    p {
+        font-size: 40px;
+        padding-bottom: 20px;
+        -webkit-text-fill-color: #ffcb05;
+        -webkit-text-stroke-width: 2.5px;
+        -webkit-text-stroke-color: #2a75bb;
+        font-weight: bolder;
+    }
+}

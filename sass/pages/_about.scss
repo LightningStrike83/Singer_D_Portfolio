@@ -1,0 +1,112 @@
+@use "../abstracts/variables" as c;
+
+#about-intro {
+    h3 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+#tab-area {
+    padding: 0;
+}
+
+.tab {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    cursor: pointer;
+}
+
+#professional-tab {
+    background-color: c.$green;
+}
+
+#personal-tab {
+    background-color: c.$darkgreen;
+}
+
+#info-box {
+    padding: 0;
+    margin-bottom: 50px;
+    background-color: c.$green;
+    h3 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+}
+
+#about-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-image: url(/images/professional.jpg);
+    background-size: cover;
+    background-position: 30%;
+}
+
+#about-bio-button {
+    text-align: center;
+    margin-bottom: 20px;
+    p {
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+.about-bio {
+    display: none;
+    text-align: left;
+}
+
+.bio-heading {
+    border-bottom: 2px solid black;
+}
+
+.bio-text {
+    margin-bottom: 25px;
+}
+
+#mobile-bio {
+    display: none;
+    p {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+#big-screen-bio {
+    display: none;
+    margin-bottom: 30px;
+    p {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #bio-info {
+        order: 1;
+    }
+
+    #about-bio {
+        display: grid;
+    }
+
+    #about-bio-button {
+        display: none;
+    }
+
+    #big-screen-bio {
+        display: block;
+    }
+}

@@ -1,0 +1,25 @@
+#error-chibi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        height: 175px;
+    }
+}
+
+#error-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    h3 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    p {
+        &:not(:last-of-type) {
+            margin-bottom: 30px;
+        }
+    }
+}

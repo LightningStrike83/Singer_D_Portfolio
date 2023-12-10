@@ -1,0 +1,75 @@
+p, a, li, #submit-contact {
+    font-family: 'Rockwell';
+    color: white;
+    font-size: 18px;
+    line-height: 36px;
+}
+
+a {
+    text-decoration: none;
+    &:visited {
+        color: white;
+        &:hover {
+            color: white;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+    &:hover {
+        color: white;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+h3 {
+    font-family: 'Eras ITC';
+    font-weight: 600;
+    color: white;
+    font-size: 30px;
+}
+
+li a {
+    font-family: 'Eras ITC';
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    &:hover {
+        text-decoration: underline;
+        color: white;
+        transition: all 0.5s ease-in-out
+    }
+    &:visited {
+        color: black;
+    }
+    transition: all 0.5s ease-in-out
+}
+
+@media screen and (min-width: 768px) {
+    p, a, li, #submit-contact {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 36px;
+    }
+
+    li a {
+        font-size: 24px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    p, a, li, #submit-contact {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 48px;
+    }
+
+    li a {
+        font-size: 30px;
+        color: black;
+    }
+}
