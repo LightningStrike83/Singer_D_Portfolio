@@ -9,9 +9,9 @@
 
     let bioMember = [
         {
-            pro: "Hello there. My name is Dan Singer, a front-end coder with a few extra tricks up my sleeve. I love creating things for others. It always makes me happy to see others’ ideas come to life. Not just with coding, but I also have expertise with creating videos and writing stories. Basically, if you give me some assets to work with, I’ll do my best to mold them into something that you’ll be proud of! If something piques my interest just right too, I can make something truly magical!",
+            pro: "Hello there. My name is Delilah Singer, a front-end coder with a few extra tricks up my sleeve. I love creating things for others. It always makes me happy to see others’ ideas come to life. Not just with coding, but I also have expertise with creating videos and writing stories. Basically, if you give me some assets to work with, I’ll do my best to mold them into something that you’ll be proud of! If something piques my interest just right too, I can make something truly magical!",
 
-            casual: "Hello there. My name is Dan Singer, but some call me Lightning. Media has always been my muse and provided me with inspiration to create. One day, I hope to create something that touches others the same way books, movies, games, and TV shows have touched me. Also, I’m a big fan of Eevee and Cinnamoroll!"
+            casual: "Hello there. My name is Delilah Singer, but some call me Lightning. Media has always been my muse and provided me with inspiration to create. One day, I hope to create something that touches others the same way books, movies, games, and TV shows have touched me. Also, I’m a big fan of Eevee and Cinnamoroll!"
         },
     ]
 

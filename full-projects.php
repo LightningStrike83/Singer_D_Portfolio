@@ -14,7 +14,7 @@ $results = mysqli_query($connect,$query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Projects</title>
+    <title>Full Projects- Delilah Singer</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/main.css">
@@ -26,7 +26,7 @@ $results = mysqli_query($connect,$query);
     <script defer src="js/main.js"></script>
 </head>
 <body>
-    <h1 class="hidden">Demo Selection</h1>
+    <h1 class="hidden">Full Projects</h1>
     <header class="full-width-grid-con">
         <nav class="grid-con top-nav">
             <a class="col-span-1 m-col-span-2 l-col-span-1 header-logo" href="index.html"><svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105.47 66.24">
@@ -91,7 +91,7 @@ $results = mysqli_query($connect,$query);
     </section>
 
     <footer class="full-width-grid-con">
-        <p class="copyright">© Dan Singer</p>
+        <p class="copyright">© Delilah Singer</p>
     </footer>
 </body>
 </html>
