@@ -63,8 +63,8 @@
         buttonArea.appendChild(buttonDiv)
         buttonDiv.appendChild(buttonText)
 
-        tl.to(titleChange, {duration: 2.5,text: "Just Lightning",});
-        tl.to(textChange, {duration: 2.5,text: "Just Lightning",});
+        tl.to(titleChange, {duration: 2.5,text: "Just Delilah",});
+        tl.to(textChange, {duration: 2.5,text: "Just Delilah",});
 
         //imageArea.innerHTML = ""
         //darkImage.src = "images/just_lightning.jpg"
@@ -92,8 +92,8 @@
 
         const buttonChange = document.querySelector("#demo-button p")
         const copyright = document.querySelector(".copyright")
-        tl.to(buttonChange, {duration: 2.5,text: "Just Lightning",});
-        tl.to(copyright, {duration: 2.5,text: "© Just Lightning",});
+        tl.to(buttonChange, {duration: 2.5,text: "Just Delilah",});
+        tl.to(copyright, {duration: 2.5,text: "© Just Delilah",});
 
         buttonDiv.addEventListener('click', justLightning)
     }
@@ -102,7 +102,7 @@
         const jlArea = document.querySelector("#secret-area")
         const jlMessage = document.createElement('p')
 
-        jlMessage.textContent = "Just Lightning"
+        jlMessage.textContent = "Just Delilah"
 
         jlArea.appendChild(jlMessage)
     }
