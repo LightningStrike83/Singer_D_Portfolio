@@ -1,0 +1,52 @@
+@use "../abstracts/variables" as c;
+
+#title {
+    h3 {
+        margin-bottom: 10px;
+    }
+}
+
+#secret-area p {
+    border: 3px solid #ffbedf;
+    background-color: #fde5ee;
+    text-align: center;
+    margin-bottom: 30px;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#main-image {
+    display: flex;
+    justify-content: center;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#demo-button {
+    padding: 25px;
+    background-color: c.$green;
+    border: 1px solid c.$green;
+    border-radius: 43px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    p {
+        transition: all 0.5s ease-in-out;
+    }
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        background-color: white;
+        p {
+            color: c.$green;
+        }
+    }
+}
+
+#go-back {
+    visibility: hidden;
+}

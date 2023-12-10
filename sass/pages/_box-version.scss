@@ -1,0 +1,17 @@
+@use '../abstracts/box-colours' as c;
+
+.orange {
+    background-color: c.$box-orange;
+}
+
+.green {
+    background-color: c.$box-green;
+}
+
+.pink {
+    background-color: c.$box-pink;
+}
+
+.yellow {
+    background-color: c.$box-yellow;
+}

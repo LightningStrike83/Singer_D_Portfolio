@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as c;
+
+#slider-instruction {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#hero-home {
+    margin-bottom: 50px;
+}
+
+#hero-container {
+    position: relative;
+    height: 700px;
+
+    .superhero-image {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 700px;
+    }
+
+    #right-image {
+        background-image: url(/images/self.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    #left-image {
+        background-image: url(/images/ghost-spider.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 1%;
+    }
+
+    #bar {
+        background-color: c.$green;
+        width: 5px;
+        cursor: pointer;
+    }
+}

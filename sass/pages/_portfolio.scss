@@ -1,0 +1,254 @@
+@use "../abstracts/variables" as c;
+
+#featured {
+    text-align: center;
+    margin-bottom: 30px;
+    h3 {
+        margin-bottom: 30px;
+    }
+}
+
+#featured-slider {
+    position: relative;
+}
+
+#featured-text-div {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: c.$green;
+    text-align: left;
+    #featured-text {
+        margin-left: 15%;
+        line-height: 1.2;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
+    }
+}
+
+#arrow-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    justify-content: space-between;
+    top: 50%;
+    width: 100%;
+}
+
+#quick-jump {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#left-arrow, #right-arrow {
+    color: c.$green;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+    &:hover {
+        opacity: 50%;
+    }
+}
+
+#left-arrow {
+    margin-left: 1%;
+    text-shadow: 1px 0 white;
+}
+
+#right-arrow {
+    margin-right: 1%;
+    text-shadow: -1px 0 white;
+}
+
+#port-intro {
+    h3 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+#portfolio-links {
+    margin-bottom: 50px;
+    div {
+        padding-top: 30px;
+        border: 2px solid c.$darkgreen;
+        border-radius: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        a {
+            text-decoration: underline;
+            margin-bottom: 30px;
+            margin-left: 15px;
+            margin-right: 15px;
+            &:hover {
+                color: c.$green;
+            }
+            &:visited {
+                color: white;
+                &:hover {
+                    color: c.$green;
+                }
+            }
+        }
+    }
+}
+
+.port-section {
+    margin-bottom: 30px;
+    a {
+        &:hover {
+            color: c.$green;
+        }
+    }
+}
+
+.portfolio-pieces {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .port-more {
+        display: flex;
+        justify-content: space-between;
+    }
+    h3 {
+        margin-bottom: 30px;
+    }
+}
+
+.project-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+    a{
+        max-width: 50%;
+    }
+    
+}
+
+.code-project {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#port-top {
+    text-align: center;
+    margin-bottom: 30px;
+    a {
+        text-decoration: underline;
+        &:hover {
+            color: c.$green!important;
+        }
+    }
+}
+
+.divider {
+    border-bottom: 1px solid c.$green;
+    margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+    #featured-text-div {
+        #featured-text {
+            margin-left: 20%;
+        }
+    }
+
+        .code-project {
+            display: flex;
+        }
+}
+
+@media screen and (min-width: 1000px) {
+    .project-container {
+        a {
+            max-width: 100%;
+
+            .project-title-front {
+                opacity: 0;
+                position: absolute;
+                right: 0;
+                left: 0;
+            }
+    
+            .project-title-video {
+                opacity: 0;
+                position: absolute;
+                right: 0;
+                left: 0;
+                text-align: center;
+            }
+    
+            .project-title-image {
+                opacity: 0;
+                position: absolute;
+                right: 0;
+                left: 0;
+                text-align: center;
+            }
+
+            .project-title-misc {
+                opacity: 0;
+                position: absolute;
+                right: 0;
+                left: 0;
+                text-align: center;
+            }
+    
+            &:hover {
+                img {
+                    opacity: 50%;
+                    transition: all 0.5s ease-in-out;
+                }
+                .project-title-front, .project-title-video, .project-title-image, .project-title-misc {
+                    opacity: 100%;
+                    transition: all 0.5s ease-in-out;
+                }
+            }
+        }
+    }
+
+    #images, #misc-projects {
+        .code-project {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+
+    #video-edits {
+        .project-container {
+            a {
+                max-width: 50%;
+            }
+        }
+    }
+
+    #port-intro {
+        p {
+            margin-bottom: 50px;
+        }
+
+    }
+
+    #portfolio-links {
+        div {
+            a {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
+    }
+}

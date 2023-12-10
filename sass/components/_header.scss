@@ -1,0 +1,118 @@
+@use "../abstracts/variables" as v;
+
+header {
+    margin-bottom: 50px;
+    .grid-con {
+        margin: 0;
+        grid-column: 2;
+    }
+    background-color: v.$green;
+}
+
+.hamburger {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    height: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.navigation {
+    display: none;
+}
+
+.nav-appear {
+    display: grid!important;
+}
+
+.sm-appear {
+    display: flex!important;
+    flex-direction: row;
+}
+
+.pop-up {
+    height: 200px;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    max-height: 90px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.social-media-header {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    a {
+        svg {
+            height: 40px;
+            width: 40px;
+        }
+    }
+}
+
+.navigation {
+    display: none;
+    align-content: center;
+    justify-content: center;
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        li {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid black;
+            &:last-of-type {border-bottom: none;}
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header-logo {
+        max-height: 90px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .header-logo {
+        max-height: 90px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .social-media-header {
+        display: flex;
+    }
+
+    .navigation {
+        display: grid;
+        order: 0;
+        ul {
+            flex-direction: row;
+            li {
+                border-bottom: none;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+    }
+}
