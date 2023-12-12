@@ -23,15 +23,19 @@ if(empty($pname)) {
 }
 
 if(empty($email)) {
-    $errors['email'] = 'Preferred Name has to be filled in please';
+    $errors['email'] = 'Email has to be filled in please';
 }
 
 if(empty($subject)) {
-    $errors['subject'] = 'Preferred Name has to be filled in please';
+    $errors['subject'] = 'Subject has to be filled in please';
 }
 
 if(empty($comments)) {
-    $errors['comments'] = 'Preferred Name has to be filled in please';
+    $errors['comments'] = 'Comments has to be filled in please';
+}
+
+else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors['legit_email'] = 'Please provide an existing email. Make sure to check the spelling too in case you made a typo~'
 }
 
 if (empty($errors)) {
