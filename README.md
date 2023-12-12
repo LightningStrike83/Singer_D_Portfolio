@@ -1,6 +1,6 @@
-# Portfolio For Dan Singer
+# Portfolio For Delilah Singer
 
-This is the porfolio for Dan Singer, front-end coder, writer, and video editor.  
+This is the porfolio for Delilah Singer, front-end coder, writer, and video editor.  
 
 ## Installation
 
@@ -32,8 +32,9 @@ TODO: Write history
 
 Anon Friend Y- Advisor  
 Bennett, John- Advisor, Reviewer  
-Deluca, Marco- Advisor, Reviewer
+Deluca, Marco- Advisor, Reviewer  
 Haaf, Rob- Advisor, Reviewer  
+Hyde, Rhea- Advisor  
 Westrop, Sophia- Advisor  
 
 ## License
