@@ -14,6 +14,27 @@
     margin-bottom: 30px;
 }
 
+#info-con {
+    display: flex;
+    flex-direction: row;
+}
+
+#text-con {
+    float: right;
+    a {
+        color: c.$green;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+#image-con {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 50%!important;
+}
+
 .side-images {
     cursor: pointer;
     transition: all 0.5s ease-in-out;
@@ -52,9 +73,7 @@
         margin-bottom: 20px;
         padding-left: 10px;
     }
-    a {
-        color: c.$green;
-    }
+    
 }
 
 .related-project {
