@@ -11,51 +11,65 @@
 #demo-selection {
     margin-bottom: 50px;
     padding: 0;
-    div {
+    .demo-box {
+        max-width: 320px;
+        margin-bottom: 30px;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        .demo-box {
-            max-width: 300px;
-            margin-bottom: 30px;
+        justify-content: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        border: 1px solid c.$green;
+        a {
+            
             display: flex;
-            justify-content: center;
-            margin-left: 20px;
-            margin-right: 20px;
-            a {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            &:hover {
-                img {
-                    opacity: 50%;
-                    transition: all 0.5s ease-in-out;
-                }
-                p {
-                    color: c.$green;
-                    text-decoration: underline;
-                    transition: all 0.5s ease-in-out;
-                }
-                
-            }
+            flex-direction: column;
+            align-items: center;
         }
         p {
-            text-align: center;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
         }
+        &:hover {
+            img {
+                opacity: 50%;
+                transition: all 0.5s ease-in-out;
+            }
+            p {
+                color: c.$green;
+                text-decoration: underline;
+                transition: all 0.5s ease-in-out;
+            }
+            
+        }
+    }
+    p {
+        text-align: center;
     }
 }
 
 .demo-thumbnail {
-    max-width: 350px;
     max-height: 160px;
     justify-self: center;
     margin-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
-    .demo-box {
-        width: 350px!important;
+    #demo-selection {
+        .demo-box {
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #demo-selection {
+        .demo-box {
+            p {
+                font-size: 28px;
+            }
+        }
     }
 }
