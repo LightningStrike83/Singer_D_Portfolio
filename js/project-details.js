@@ -4,7 +4,7 @@
     const moreInfo = document.querySelector("#more-info-text")
     const topButton = document.querySelector("#port-top")
     const galleryLightbox = document.querySelector("#gallery-lightbox")
-    const thumbnails = document.querySelector("#details-images")
+    const thumbnails = document.querySelector("#image-con")
     const thumbTemplate = document.querySelector("#gallery-thumbs-template")
     const thumbClone = thumbTemplate.content.cloneNode(true)
     const closeButton = document.querySelector(".lb_close")
