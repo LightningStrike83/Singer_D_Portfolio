@@ -2,7 +2,6 @@
     gsap.registerPlugin(ScrollToPlugin);
 
     const moreInfo = document.querySelector("#more-info-text")
-    const moreInfoButton = document.querySelector("#details-info-button")
     const topButton = document.querySelector("#port-top")
     const galleryLightbox = document.querySelector("#gallery-lightbox")
     const thumbnails = document.querySelector("#details-images")
@@ -67,7 +66,6 @@
         gsap.to(window, {duration: 1, scrollTo:{y:0}})
     }
 
-    moreInfoButton.addEventListener('click', showMoreContent)
     closeButton.addEventListener('click', closeLightbox)
     toTop.addEventListener('click', smoothScroll)
 })();
