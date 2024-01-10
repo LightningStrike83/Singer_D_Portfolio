@@ -14,7 +14,7 @@ This is the porfolio for Delilah Singer, front-end coder, writer, and video edit
 
 ## Usage
 
-This is for commercial use for Dan Singer only.  
+This is for commercial use for Delilah Singer only.  
 
 ## Contributing
 

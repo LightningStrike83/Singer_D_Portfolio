@@ -14,26 +14,27 @@
     margin-bottom: 30px;
 }
 
-#info-con {
-    display: flex;
-    flex-direction: row;
-}
+// #info-con {
+// display: flex;
+// flex-direction: row;
+// }
 
 #text-con {
-    float: right;
+    // float: right;
     a {
-        color: c.$green;
-        &:hover {
-            text-decoration: underline;
-        }
+    color: c.$green;
+    &:hover {
+    text-decoration: underline;
     }
-}
-
-#image-con {
+    }
+    }
+    
+    #image-con {
     display: flex;
     flex-direction: column-reverse;
     width: 50%!important;
-}
+    float: left;
+    }
 
 .side-images {
     cursor: pointer;
