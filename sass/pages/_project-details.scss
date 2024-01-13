@@ -7,34 +7,30 @@
 
 #details-content img {
     float: left;
-    margin-right: 2%;
+    margin-right: 5%;
 }
 
 #main-image {
     margin-bottom: 30px;
 }
 
-// #info-con {
-// display: flex;
-// flex-direction: row;
-// }
 
 #text-con {
-    // float: right;
+    margin-bottom: 30px;
     a {
-    color: c.$green;
-    &:hover {
-    text-decoration: underline;
+        color: c.$green;
+         &:hover {
+        text-decoration: underline;
+        }
     }
-    }
-    }
+}
     
-    #image-con {
+#image-con {
     display: flex;
     flex-direction: column-reverse;
     width: 50%!important;
     float: left;
-    }
+}
 
 .side-images {
     cursor: pointer;
@@ -50,7 +46,7 @@
     justify-content: space-between;
     margin-bottom: 30px;
     img {
-        max-width: 50%;
+        max-width: 40%;
         &:last-of-type {
             display: none;
         }

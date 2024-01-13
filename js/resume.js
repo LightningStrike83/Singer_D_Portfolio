@@ -1,15 +1,42 @@
 (() => {
     gsap.registerPlugin(ScrollToPlugin);
     const topButton = document.querySelector("#to-top")
-    let tl = gsap.timeline();
+    const qualificationsButton = document.querySelector ("#qualifications-button");
+    const historyButton = document.querySelector("#history-button")
+    const resumeDivider = document.querySelector("#resume-divider")
 
-    function smoothScrollTop(e) {
-        e.preventDefault();
+    function openQualifications() {
+        let qualificationsSection = document.querySelector("#qualifications-section")
+        let resumeSection = document.querySelector("#resume-section")
 
-        gsap.to(window, {duration: 1, scrollTo:{y:0}})
+        if (qualificationsSection.style.display === "grid") {
+            qualificationsSection.style.display = "none"
+            resumeSection.style.display = "none"
+            resumeDivider.style.display = "none"
+        } else {
+            qualificationsSection.style.display = "grid"
+            resumeSection.style.display = "none"
+            resumeDivider.style.display = "grid"
+        }
     }
 
-    tl.staggerFrom("#resume-section li", 1, {autoAlpha: 0}, 0.3, 0.5)
+    function openHistory() {
+        let qualificationsSection = document.querySelector("#qualifications-section")
+        let resumeSection = document.querySelector("#resume-section")
 
+        if (resumeSection.style.display === "grid") {
+            qualificationsSection.style.display = "none"
+            resumeSection.style.display = "none"
+            resumeDivider.style.display = "none"
+        } else {
+            qualificationsSection.style.display = "none"
+            resumeSection.style.display = "grid"
+            resumeDivider.style.display = "grid"
+        }
+    }
+    
+
+    qualificationsButton.addEventListener("click", openQualifications)
+    historyButton.addEventListener("click", openHistory)
     topButton.addEventListener('click', smoothScrollTop)
 })();
