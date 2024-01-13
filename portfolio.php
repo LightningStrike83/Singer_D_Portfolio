@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+
+<?php
+
+require_once('connect.php');
+$query = 'SELECT title, image1, category_id FROM projects ORDER BY category_id ASC';
+$results = mysqli_query($connect,$query);
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -85,47 +94,20 @@
       <div class="col-span-full portfolio-pieces">
         <h3>Front-End Coded Websites</h3>
         <div class="project-container">
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project_images/front/sunbiscuit-thumb.svg" alt="Sunbiscuit's Portfolio">
-              <p class="project-title-front">Sunbiscuit's Portfolio</p>
-            </div>
-            </a>
 
-            <a href="project-details.html">
-              <div class="code-project">
-                <img src="images/project_images/front/pokemon-thumb.svg" alt="Create Your Own Pokedex">
-                <p class="project-title-front">Create Your Own Pokedex</p>
-              </div>
-            </a>
+        <?php
 
-            <a href="project-details.html">
-              <div class="code-project">
-                <img src="images/project_images/front/industry-night.svg" alt="Fanshawe Industry Night">
-                <p class="project-title-front">Fanshawe Industry Night</p>
-              </div>
-            </a>
+        while($row = mysqli_fetch_array($results)){
+            echo '<a href="project-details.html"><div class="code-project"><img src="images/project_images/front/'.$row['image1'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a>';
+        }
 
-            <a href="project-details.html">
-              <div class="code-project">
-                <img src="images/project_images/front/music-mixer.svg" alt="Hoenn Music Mixer">
-                <p class="project-title-front">Hoenn Music Mixer</p>
-              </div>
-            </a>
-
-            <a href="project-details.html">
-              <div class="code-project">
-                <img src="images/project_images/front/earbud.svg" alt="Ear Bud Campaign">
-                <p class="project-title-front">Ear Bud Campaign</p>
-              </div>
-            </a>
-
-            <a href="project-details.html">
-              <div class="code-project">
-                <img src="images/project_images/front/trainer-site.svg" alt="Pokemon Trainer Website">
-                <p class="project-title-front">Pokemon Trainer Website</p>
-              </div>
-            </a>
+        ?>
+            <!--<a href="project-details.html">
+                <div class="code-project">
+                    <img src="images/project-thumbnails/front/sunbiscuit-thumb.svg" alt="Sunbiscuit's Portfolio">
+                    <p class="project-title-front">Sunbiscuit's Portfolio</p>
+                </div>
+            </a>-->
         </div>
         <div class="port-more">
           <a class="to-top" href="#port-intro">&#x2191; To Top</a>
@@ -145,28 +127,28 @@
         <div class="project-container">
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/video/ashes.svg" alt="Ashes- Fire Emblem AMV">
+              <img src="images/project-thumbnails/video/ashes.svg" alt="Ashes- Fire Emblem AMV">
               <p class="project-title-video">Ashes- Fire Emblem AMV</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/video/orbitz.svg" alt="Orbitz Commercial">
+              <img src="images/project-thumbnails/video/orbitz.svg" alt="Orbitz Commercial">
               <p class="project-title-video">Orbitz Commercial</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/video/seven.svg" alt="Seven Makeup Campaign">
+              <img src="images/project-thumbnails/video/seven.svg" alt="Seven Makeup Campaign">
               <p class="project-title-video">Seven Makeup Campaign</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/video/ghostbusters.svg" alt="Ghostbusters Spirit Video">
+              <img src="images/project-thumbnails/video/ghostbusters.svg" alt="Ghostbusters Spirit Video">
               <p class="project-title-video">Ghostbusters Spirit Video</p>
             </div>
           </a>
@@ -189,70 +171,70 @@
         <div class="project-container">
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/yumi-art.svg" alt="Birthday Art For Yumichan216">
+              <img src="images/project-thumbnails/images/yumi-art.svg" alt="Birthday Art For Yumichan216">
               <p class="project-title-image">Pokemon Family (Gift)</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/monika-image.svg" alt="Just Monika">
+              <img src="images/project-thumbnails/images/monika-image.svg" alt="Just Monika">
               <p class="project-title-image">Just Monika</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/pixel-image.svg" alt="Trainer Pixel Sprite">
+              <img src="images/project-thumbnails/images/pixel-image.svg" alt="Trainer Pixel Sprite">
               <p class="project-title-image">Trainer Pixel Sprite</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/slender-image.svg" alt="Slender Man">
+              <img src="images/project-thumbnails/images/slender-image.svg" alt="Slender Man">
               <p class="project-title-image">Slender Man</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/earbuds-image.svg" alt="Ear Buds">
+              <img src="images/project-thumbnails/images/earbuds-image.svg" alt="Ear Buds">
               <p class="project-title-image">Ear Buds</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/mudkip-image.svg" alt="Mudkip">
+              <img src="images/project-thumbnails/images/mudkip-image.svg" alt="Mudkip">
               <p class="project-title-image">Mudkip</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/red-image.svg" alt="Red">
+              <img src="images/project-thumbnails/images/red-image.svg" alt="Red">
               <p class="project-title-image">Red</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/gif-thumb.svg" alt="Running Pixel">
+              <img src="images/project-thumbnails/images/gif-thumb.svg" alt="Running Pixel">
               <p class="project-title-image">Running Pixel</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/peach-image.svg" alt="Princess Peach">
+              <img src="images/project-thumbnails/images/peach-image.svg" alt="Princess Peach">
               <p class="project-title-image">Princess Peach</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img src="images/project_images/images/ow-image.svg" alt="Overwatch Skins">
+              <img src="images/project-thumbnails/images/ow-image.svg" alt="Overwatch Skins">
               <p class="project-title-image">Overwatch Skins</p>
             </div>
           </a>
@@ -275,42 +257,42 @@
         <div class="project-container">
           <a href="project-details.html">
             <div class="code-project">
-              <img class="misc-img" src="images/project_images/misc/crossroads.svg" alt="The Crossroads Of Life">
+              <img class="misc-img" src="images/project-thumbnails/misc/crossroads.svg" alt="The Crossroads Of Life">
               <p class="project-title-misc">The Crossroads Of Life</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img class="misc-img" src="images/project_images/misc/wof.svg" alt="Wheel of Fortune Game">
+              <img class="misc-img" src="images/project-thumbnails/misc/wof.svg" alt="Wheel of Fortune Game">
               <p class="project-title-misc">Wheel of Fortune Game</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img class="misc-img" src="images/project_images/misc/trivia.svg" alt="Trivia Game">
+              <img class="misc-img" src="images/project-thumbnails/misc/trivia.svg" alt="Trivia Game">
               <p class="project-title-misc">Trivia Game</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img class="misc-img" src="images/project_images/misc/halloween.svg" alt="Loss, and the Dire Mistakes of One Determined Princess">
+              <img class="misc-img" src="images/project-thumbnails/misc/halloween.svg" alt="Loss, and the Dire Mistakes of One Determined Princess">
               <p class="project-title-misc">Loss, and the Dire Mistakes of One Determined Princess</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img class="misc-img" src="images/project_images/misc/jeopardy.svg" alt="Jeopardy Game">
+              <img class="misc-img" src="images/project-thumbnails/misc/jeopardy.svg" alt="Jeopardy Game">
               <p class="project-title-misc">Jeopardy Game</p>
             </div>
           </a>
 
           <a href="project-details.html">
             <div class="code-project">
-              <img class="misc-img" src="images/project_images/misc/haunted-halls.svg" alt="The Haunted Halls of Garreg Mach">
+              <img class="misc-img" src="images/project-thumbnails/misc/haunted-halls.svg" alt="The Haunted Halls of Garreg Mach">
               <p class="project-title-misc">The Haunted Halls of Garreg Mach</p>
             </div>
           </a>
