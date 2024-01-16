@@ -1,3 +1,11 @@
 <?php
-$connect = new mysqli('localhost','root','','portfolio_db');
+
+$dsn = "mysql:host=localhost;dbname=portfolio_db;charset=utf8mb4";
+try {
+$connection = new PDO($dsn, 'root', '');
+} catch (Exception $e) {
+  error_log($e->getMessage());
+  exit('unable to connect');
+}
+
 ?>

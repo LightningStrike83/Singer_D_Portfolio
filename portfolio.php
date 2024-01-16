@@ -3,8 +3,9 @@
 <?php
 
 require_once('connect.php');
-$query = 'SELECT title, portfolio_image, category_id FROM projects ORDER BY category_id ASC';
-$results = mysqli_query($connect,$query);
+
+$stmt = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects ORDER BY category_id ASC');
+$stmt->execute();
 
 ?>
 
@@ -97,8 +98,8 @@ $results = mysqli_query($connect,$query);
 
         <?php
 
-        while($row = mysqli_fetch_array($results)){
-            echo '<a href="project-details.html"><div class="code-project"><img src="images/project_images/front/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a>';
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/front/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a>';
         }
 
         ?>
