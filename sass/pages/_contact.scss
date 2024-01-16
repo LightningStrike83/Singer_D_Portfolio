@@ -17,24 +17,20 @@
 #contact-d {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     input:not(#submit-contact) {
         border: 4px solid c.$green;
         border-radius: 30px;
         background-color: white;
         height: 60px;
-        min-width: 200px;
-        max-width: 271px;
         padding-left: 20px;
         margin-bottom: 20px;
-        margin-right: 20px;
-        margin-left: 20px;
+        width: 100%;
     }
 
     #comments {
         height: 300px;
         width: 100%;
-        max-width: 365px;
         margin-bottom: 20px;
         border: 4px solid c.$green;
         border-radius: 30px;
@@ -55,50 +51,6 @@
             color: white;
             background-color: c.$green;
             transition: all 0.5s ease-in-out
-        }
-    }
-}
-
-
-
-@media screen and (min-width: 768px) {
-    #contact-intro {
-        background-size: auto;
-    }
-
-    #contact-d {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        input:not(#submit-contact, #subject) {
-            min-width: 350px;
-        }
-
-        #subject {
-            min-width: 600px!important;
-            max-width: 675px!important;
-        }
-
-        #comments {
-            max-width: 675px;
-            min-width: 600px;
-        }
-
-        #submit-contact {
-            margin-left: 200px;
-            margin-right: 200px;
-        }
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    #contact-d {
-        input:not(#submit-contact, #subject) {
-            min-width: 420px;
-        }
-
-        #subject {
-            min-width: 880px!important;
         }
     }
 }
