@@ -17,7 +17,7 @@
 #contact-d {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     input:not(#submit-contact) {
         border: 4px solid c.$green;
         border-radius: 30px;
@@ -52,5 +52,20 @@
             background-color: c.$green;
             transition: all 0.5s ease-in-out
         }
+    }
+}
+
+#office-pic {
+    display: none;
+    padding-top: 10%;
+}
+
+@media screen and (min-width: 768px) {
+    #office-pic {
+        display: grid;
+    }
+
+    #contact-d {
+        align-items: flex-end;
     }
 }

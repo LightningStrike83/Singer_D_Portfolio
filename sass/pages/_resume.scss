@@ -125,6 +125,15 @@
     height: 20px;
 }
 
+#to-top {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        color: c.$darkgreen;
+    }
+}
+
 @media screen and (min-width: 768px) {
     #resume-buttons {
         margin-bottom: 30px;

@@ -34,6 +34,10 @@
             resumeDivider.style.display = "grid"
         }
     }
+
+    function smoothScrollTop() {
+        gsap.to(window, {duration: 1, scrollTo:{y:0}})
+    }
     
 
     qualificationsButton.addEventListener("click", openQualifications)
