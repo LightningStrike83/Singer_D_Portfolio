@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <?php 
 require_once('connect.php');
-$query = 'SELECT projects.id AS projectID, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link FROM projects, clients, links, projects_software, related, software WHERE projects.client_id = clients.id AND projects.link_id = links.id AND projects.id = :projectId';
+$query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, image_description, folder, portfolio_image FROM projects, clients, links, media, projects_software, related, software, category WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND related.main_project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.id = :projectId';
 $stmt = $connection->prepare($query);
 $projectId = $_GET['id'];
 $stmt->bindParam(':projectId', $projectId, PDO::PARAM_INT);
 $stmt->execute();
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-print_r(':projectId');
-$row= $result[0];
-//$images = explode(",", $row['images']);
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$images = explode(",", $row['images']);
+$software = explode(",", $row['software_name']);
+$stmt = null;
+print_r($row);
 ?>
 
 <html lang="en">
@@ -72,18 +73,33 @@ $row= $result[0];
       <div id="details-images" class="col-span-full">
         <div id="info-con">
           <div id="image-con">
-            <img id="main-image" src="images/sunbiscuit-filler-1.svg" alt="Image of Sunbiscuit's Portfolio">
+
+          <?php 
+          echo '<img id="main-image" src="images/project_images/'.$row['folder'].'/'.$row['portfolio_image'].'" alt="Image of '.$row['title'].'">'
+          ?>
+            <!--<img id="main-image" src="images/sunbiscuit-filler-1.svg" alt="Image of Sunbiscuit's Portfolio">-->
       
-            <template id="gallery-thumbs-template">
+            <template id="gallery-thumbs-template"><div id="gallery-thumbs">
+            <?php 
+            for($i =0; $i < count($images); $i++ )
+
+            echo '<img class="side-images" src ="images/project_images/'.$row['folder'].'/'.$images[$i].'" alt="Gallery Image">'
+            ?>
+            </div></template>
+
+            <!--<template id="gallery-thumbs-template">
               <div id="gallery-thumbs">
                 <img id="2" class="side-images" src="images/gallery-1.svg" alt="Gallery Image 1">
                 <img id="1" class="side-images" src="images/gallery-2.svg" alt="Gallery Image 2">
                 <img id="3" class="side-images" src="images/gallery-3.svg" alt="Gallery Image 3">
               </div>
-            </template>
+            </template> -->
           </div>
 
-        <?php echo '<div id="text-con"><p>Project Name:<br>'.$row['title'];'<br><br>Software Used:<br> VS Code<br><br>Client:<br> '.$row['name'];'<br><br>Link:<br> <a href="'.$row['link'];'"></a><br><br>Description:<br>'.$row['description'];'<br><br>Case Study:<br>'.$row['case_study'];'</p></div>' ?>  
+        <?php 
+        for($i =0; $i < count($software); $i++ )
+        
+        echo '<div id="text-con"><p>Project Name:<br>'.$row['title'].'<br><br>Software Used:<br> '.$software[$i].'<br><br>Client:<br> '.$row['client_name'].'<br><br>Link:<br> <a href="'.$row['link'].'">'.$row['title'].'</a><br><br>Description:<br>'.$row['description'].'<br><br>Case Study:<br>'.$row['case_study'].'</p></div>' ?>  
           
         <!--<div id="text-con">
           <p>Project Name:<br> Sunbiscuit Portfolio<br><br>
