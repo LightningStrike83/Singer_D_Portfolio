@@ -116,10 +116,7 @@ $stmt->execute();
           while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             echo '<a href="full-projects.php'.$row['category_id'].'">More >>></a>';
           }
-
-          while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            echo '<p>HI</p>';
-          }
+          
           ?>
 
           <!--<a href="full-projects.html">More >>></a>-->
