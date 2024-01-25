@@ -37,6 +37,33 @@
     }
 }
 
+#details-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    p, img {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+.title {
+    text-align: center;
+}
+
+.rarity {
+    align-self: center;
+    width: 15%;
+}
+
+.splash-art {
+    max-width: 90%;
+    margin-bottom: 10px;
+}
+
 @media screen and (min-width: 768px) {
     #api-instructions {
         h3 {
