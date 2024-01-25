@@ -48,6 +48,12 @@
     }
 }
 
+#demo-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 .demo-thumbnail {
     max-height: 160px;
     justify-self: center;
