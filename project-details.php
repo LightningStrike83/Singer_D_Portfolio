@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 require_once('connect.php');
-$query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, image_description, folder, portfolio_image FROM projects, clients, links, media, projects_software, related, software, category WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.id = :projectId';
+$query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, image_description, folder, portfolio_image FROM projects, clients, links, media, projects_software, software, category WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.id = :projectId';
 //AND related.main_project_id = projects.id
 $stmt = $connection->prepare($query);
 $projectId = $_GET['id'];
@@ -54,7 +54,7 @@ print_r($row);
 
             <div class="col-start-4 col-end-5 m-col-start-12 m-col-end-13 l-col-span-9 navigation">
                 <ul>
-                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="portfolio.php">Portfolio</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="demos-home.html">Demos</a></li>

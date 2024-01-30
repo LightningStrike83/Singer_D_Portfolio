@@ -55,6 +55,8 @@ if (empty($errors)) {
         header('Location: thank-you.php');
 
     }
+} else {
+    $errorsarray = json_encode($array)
 }
 
 ?>

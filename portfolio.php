@@ -4,9 +4,13 @@
 
 require_once('connect.php');
 
-$stmt = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 1 ORDER BY category_id ASC');
+$stmt = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 1 ORDER BY category_id ASC LIMIT 6');
 $stmt->execute();
 
+$stmt2 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 2 ORDER BY category_id ASC LIMIT 4');
+$stmt2->execute();
+
+$cat = 0;
 ?>
 
 <html lang="en">
@@ -49,7 +53,7 @@ $stmt->execute();
 
             <div class="col-start-4 col-end-5 m-col-start-12 m-col-end-13 l-col-span-9 navigation">
                 <ul>
-                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="portfolio.php">Portfolio</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="demos-home.html">Demos</a></li>
@@ -99,7 +103,8 @@ $stmt->execute();
         <?php
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/front/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a>';
+            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/front/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a><br><br>';
+            $cat = $row['category_id'];
         }
 
         ?>
@@ -112,12 +117,11 @@ $stmt->execute();
         </div>
         <div class="port-more">
           <a class="to-top" href="#port-intro">&#x2191; To Top</a>
-          <?php 
-          while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            echo '<a href="full-projects.php'.$row['category_id'].'">More >>></a>';
-          }
-          
-          ?>
+
+        <?php
+          echo '<a href="full-projects.php?cat='.$cat.'">More >>></a>'; 
+        ?>  
+
 
           <!--<a href="full-projects.html">More >>></a>-->
         </div>
@@ -133,37 +137,22 @@ $stmt->execute();
       <div class="col-span-full portfolio-pieces">
         <h3>Video Edits</h3>
         <div class="project-container">
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/video/ashes.svg" alt="Ashes- Fire Emblem AMV">
-              <p class="project-title-video">Ashes- Fire Emblem AMV</p>
-            </div>
-          </a>
+           <?php
 
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/video/orbitz.svg" alt="Orbitz Commercial">
-              <p class="project-title-video">Orbitz Commercial</p>
-            </div>
-          </a>
+            while($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
+            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/video/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-video">'.$row['title'].'</p></div></a>';
+            $cat = $row['category_id'];
+            }
 
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/video/seven.svg" alt="Seven Makeup Campaign">
-              <p class="project-title-video">Seven Makeup Campaign</p>
-            </div>
-          </a>
+          ?>
 
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/video/ghostbusters.svg" alt="Ghostbusters Spirit Video">
-              <p class="project-title-video">Ghostbusters Spirit Video</p>
-            </div>
-          </a>
+          
         </div>
         <div class="port-more">
           <a class="to-top" href="#port-intro">&#x2191; To Top</a>
-          <a href="full-projects.html">More >>></a>
+          <?php
+          echo '<a href="full-projects.php?cat='.$cat.'">More >>></a>'; 
+          ?> 
         </div>
       </div>
     </section>
@@ -249,7 +238,9 @@ $stmt->execute();
         </div>
         <div class="port-more">
           <a class="to-top" href="#port-intro">&#x2191; To Top</a>
-          <a href="full-projects.html">More >>></a>
+          <?php
+          echo '<a href="full-projects.php?cat='.$cat.'">More >>></a>'; 
+          ?> 
         </div>
       </div>
     </section>
@@ -307,7 +298,9 @@ $stmt->execute();
         </div>
         <div class="port-more">
           <a class="to-top" href="#port-intro">&#x2191; To Top</a>
-          <a href="full-projects.html">More >>></a>
+          <?php
+          echo '<a href="full-projects.php?cat='.$cat.'">More >>></a>'; 
+          ?> 
         </div>
       </div>
     </section>
