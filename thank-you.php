@@ -20,9 +20,9 @@
         </div>
         
         <div class="col-span-full">
-          <h3>Off He Goes!</h3>
+          <h3>Off She Goes!</h3>
           <p>Thank you so much for your message! I'll be sure to respond as soon as I check my mailbox.</p>
-          <p>In the meantime, why not check out some more of my <a id="contact-direct" href="portfolio.html">portfolio?</a></p>
+          <p>In the meantime, why not check out some more of my <a id="contact-direct" href="portfolio.php">portfolio?</a></p>
         </div>
       </div>
 </section>

@@ -5,10 +5,22 @@ Please see the bottom of this page for my thought process -->
 <html lang="en">
 <?php 
 
-require_once('connect.php')
+require_once('connect.php');
 
-$query = 'SELECT category_id, title, image_path, page_id, image_id, image_page_id, project_id, project_id, category_id, category, FROM category, projects, images, pages WHERE projects.category_id = category.category_id, images.project_id = projects.project_id, images.image_id = images_pages.image_id, pages.page_id = images_pages.page_id'
-$results = mysqli_query($connect,$query);
+$query = 'SELECT projects.id AS proID, title, portfolio_image, category_id, category, category.id, folder FROM projects, category WHERE projects.category_id = category.id AND category_id = :categoryId';
+
+$stmt = $connection->prepare($query);
+$categoryId = $_GET['cat'];
+$stmt->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
+$stmt->execute();
+
+$query2 = 'SELECT category, id FROM category WHERE id = :categoryId2';
+$stmt2 = $connection->prepare($query2);
+$categoryId2 = $_GET['cat'];
+$stmt2->bindParam(':categoryId2', $categoryId2, PDO::PARAM_INT);
+$stmt2->execute();
+$title = $stmt2->fetch(PDO::FETCH_ASSOC);
+$heading = $title['category'];
     
 ?>
 <head>
@@ -51,7 +63,7 @@ $results = mysqli_query($connect,$query);
 
             <div class="col-start-4 col-end-5 m-col-start-12 m-col-end-13 l-col-span-9 navigation">
                 <ul>
-                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="portfolio.php">Portfolio</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="demos-home.html">Demos</a></li>
@@ -69,16 +81,14 @@ $results = mysqli_query($connect,$query);
     <section id="front-end" class="grid-con port-section">
       <div class="col-span-full portfolio-pieces">
         <?php
-            while($row = mysqli_fetch_array($results)) {
-                echo '<h3>'.$row['category'].'</h3>'
-            }
+                echo '<h3>'.$title.'</h3>';
         ?>
 
         <div class="project-container">
 
             <?php
-                while($row = mysqli_fetch_array($results)) {
-                    echo '<div class="project-container"><a href="http://localhost/portfolio_db/details.php?id='.$row['project_id'].'"><div class="code-project"><img src='.$row['image_path'].'" alt="'.$row['title'].'>"<p class="project-title-front">'.$row['title']'</p></div></a>'
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo '<a class="'.$row['folder'].'-thumbnail" href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/'.$row['folder'].'/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a>';
                 }
 
             ?>
