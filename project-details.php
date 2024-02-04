@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <?php 
 require_once('connect.php');
-$query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, image_description, folder, portfolio_image FROM projects, clients, links, media, projects_software, software, category WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.id = :projectId';
-//AND related.main_project_id = projects.id
+$query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, GROUP_CONCAT(related_project_id) AS relatedproject, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, image_description, folder, portfolio_image, category_id, main_project_id, thumbnail FROM projects, clients, links, media, projects_software, software, category, related WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.category_id = category.id AND related.related_project_id = projects.id AND projects.id = :projectId ORDER BY images ASC';
+
+//The below code returns NULL results. Both of them. When I isoate them and put them in mySQL they work fine but then it doesn't work
+//AND related.main_project_id = projects.id AND related.thumbnail = media.id
+
 $stmt = $connection->prepare($query);
 $projectId = $_GET['id'];
 $stmt->bindParam(':projectId', $projectId, PDO::PARAM_INT);
@@ -10,8 +13,14 @@ $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $images = explode(",", $row['images']);
 $software = explode(",", $row['software_name']);
+$related = explode(",", $row['relatedproject']);
+$softwarelist = array_unique($software);
+$imageslist =  array_unique($images);
+$new = array_values($imageslist);
+$relatedlist = array_unique($related);
+$newrelated = array_values($relatedlist);
+print_r($newrelated);
 $stmt = null;
-print_r($row);
 ?>
 
 <html lang="en">
@@ -78,29 +87,38 @@ print_r($row);
           <?php 
           echo '<img id="main-image" src="images/project_images/'.$row['folder'].'/'.$row['portfolio_image'].'" alt="Image of '.$row['title'].'">'
           ?>
-            <!--<img id="main-image" src="images/sunbiscuit-filler-1.svg" alt="Image of Sunbiscuit's Portfolio">-->
       
             <template id="gallery-thumbs-template"><div id="gallery-thumbs">
             <?php 
-            for($i =0; $i < count($images); $i++ )
+            for($i =4; $i < count($new); $i++) {
+            //($v = 1; $v < count ($new); $v++)
+            //I want to create ids that increment by 1 for each type things echo out. So with this, it should be 1, 2, 3
 
-            echo '<img class="side-images" src ="images/project_images/'.$row['folder'].'/'.$images[$i].'" alt="Gallery Image">'
-            ?>
+            echo '<img class="side-images" id="'.$new[$v].'" data-member="'.$projectId.'"data-folder="'.$row['folder'].'" src ="images/project_images/'.$row['folder'].'/'.$new[$i].'" alt="Gallery Image">';
+            }?>
             </div></template>
 
-            <!--<template id="gallery-thumbs-template">
-              <div id="gallery-thumbs">
-                <img id="2" class="side-images" src="images/gallery-1.svg" alt="Gallery Image 1">
-                <img id="1" class="side-images" src="images/gallery-2.svg" alt="Gallery Image 2">
-                <img id="3" class="side-images" src="images/gallery-3.svg" alt="Gallery Image 3">
-              </div>
-            </template> -->
           </div>
 
         <?php 
-        for($i =0; $i < count($software); $i++ )
         
-        echo '<div id="text-con"><p>Project Name:<br>'.$row['title'].'<br><br>Software Used:<br> '.$software[$i].'<br><br>Client:<br> '.$row['client_name'].'<br><br>Link:<br> <a href="'.$row['link'].'">'.$row['title'].'</a><br><br>Description:<br>'.$row['description'].'<br><br>Case Study:<br>'.$row['case_study'].'</p></div>' ?>  
+        echo '<div id="text-con"><p>Project Name:<br>'.$row['title'].'<br><br>Software Used:<br> ';
+        
+        
+        for($i =0; $i < count($softwarelist); $i++ ) {
+
+          if (count($softwarelist) === $i) {
+          echo  $softwarelist[$i];
+          } else {
+            echo  $softwarelist[$i].', ';
+          }
+        }
+        
+        
+        
+        echo '<br><br>Client:<br> '.$row['client_name'].'<br><br>Link:<br> <a href="'.$row['link'].'">'.$row['title'].'</a><br><br>Description:<br>'.$row['description'].'<br><br>Case Study:<br>'.$row['case_study'].'</p></div>';
+        
+        ?>  
           
         <!--<div id="text-con">
           <p>Project Name:<br> Sunbiscuit Portfolio<br><br>
@@ -123,26 +141,19 @@ print_r($row);
     <section id="related-projects" class="grid-con">
       <h3 class="col-span-full">Related Projects</h3>
 
-        <a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html">
+      <?php 
+      for($i= 0; $i < count($newrelated); $i++ )
+
+      echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html?q='.$row['relatedproject'].'.php"><div><img src="images/project_images/'.$row['folder'].'/'.$newrelated[$i].'" alt= "'.$row['title'].'"><p>'.$row['title'].'</div></a>'
+      
+      ?>
+
+        <!--<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html">
           <div>
             <img src="images/related-1.svg" alt="Related Project 1">
             <p>Pokemon Family</p>
           </div>
-        </a>
-
-        <a class="related-project col-span-2 m-col-start-5 m-col-end-7" href="project-details.html">
-          <div>
-            <img src="images/related-2.svg" alt="Related Project 2">
-            <p>Ashes AMV</p>
-          </div>
-        </a>
-
-        <a class="related-project col-span-2 m-col-start-8 m-col-end-10" href="project-details.html">
-          <div>
-            <img src="images/related-3.svg" alt="Related Project 3">
-            <p>Fire Emblem Unnecessary Censorship</p>
-          </div>
-        </a>
+        </a>-->
     </section>
 
     <section id="port-top" class="grid-con">
