@@ -81,7 +81,7 @@ $heading = $title['category'];
     <section id="front-end" class="grid-con port-section">
       <div class="col-span-full portfolio-pieces">
         <?php
-                echo '<h3>'.$title.'</h3>';
+                echo '<h3>'.$heading.'</h3>';
         ?>
 
         <div class="project-container">

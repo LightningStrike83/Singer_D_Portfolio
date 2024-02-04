@@ -128,7 +128,7 @@
 
     #gallery-thumbs {
         img {
-            max-width: 75%;
+            max-width: 40%;
         }
     }
 
@@ -157,7 +157,7 @@
 @media screen and (min-width: 1200px) {
     #gallery-thumbs {
         img {
-            max-width: 100%;
+            max-width: 25%;
             &:last-of-type {
                 display: block;
             }
