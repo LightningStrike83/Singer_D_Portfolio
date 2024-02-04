@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php 
 require_once('connect.php');
-$query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, GROUP_CONCAT(related_project_id) AS relatedproject, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, image_description, folder, portfolio_image, category_id, main_project_id, thumbnail FROM projects, clients, links, media, projects_software, software, category, related WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.category_id = category.id AND related.related_project_id = projects.id AND projects.id = :projectId ORDER BY images ASC';
+$query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, GROUP_CONCAT(related_project_id) AS relatedproject, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, image_description, folder, portfolio_image, category_id, main_project_id, thumbnail FROM projects, clients, links, media, projects_software, software, category, related WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.category_id = category.id AND related.main_project_id = projects.id AND projects.id = :projectId ORDER BY images ASC';
 
 //The below code returns NULL results. Both of them. When I isoate them and put them in mySQL they work fine but then it doesn't work
-//AND related.main_project_id = projects.id AND related.thumbnail = media.id
+//AND related.related_project_id = projects.id = projects.id AND related.thumbnail = media.id
 
 $stmt = $connection->prepare($query);
 $projectId = $_GET['id'];
