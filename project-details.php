@@ -3,9 +3,6 @@
 require_once('connect.php');
 $query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, GROUP_CONCAT(related_project_id) AS relatedproject, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, image_description, folder, portfolio_image, category_id, main_project_id, thumbnail FROM projects, clients, links, media, projects_software, software, category, related WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.category_id = category.id AND related.main_project_id = projects.id AND projects.id = :projectId ORDER BY images ASC';
 
-//The below code returns NULL results. Both of them. When I isoate them and put them in mySQL they work fine but then it doesn't work
-//AND related.related_project_id = projects.id = projects.id AND related.thumbnail = media.id
-
 $stmt = $connection->prepare($query);
 $projectId = $_GET['id'];
 $stmt->bindParam(':projectId', $projectId, PDO::PARAM_INT);
@@ -89,13 +86,19 @@ $stmt = null;
           ?>
       
             <template id="gallery-thumbs-template"><div id="gallery-thumbs">
-            <?php 
+            <?php
+            $v = 1;
             for($i =4; $i < count($new); $i++) {
-            //($v = 1; $v < count ($new); $v++)
+                
+            //id="'.$new[$v].'"
             //I want to create ids that increment by 1 for each type things echo out. So with this, it should be 1, 2, 3
 
-            echo '<img class="side-images" id="'.$new[$v].'" data-member="'.$projectId.'"data-folder="'.$row['folder'].'" src ="images/project_images/'.$row['folder'].'/'.$new[$i].'" alt="Gallery Image">';
-            }?>
+            echo '<img class="side-images" id="'.$v.'" data-member="'.$projectId.'"data-folder="'.$row['folder'].'" src ="images/project_images/'.$row['folder'].'/'.$new[$i].'" alt="Gallery Image">';
+            $v++;
+            }
+            
+            
+            ?>
             </div></template>
 
           </div>
@@ -142,18 +145,17 @@ $stmt = null;
       <h3 class="col-span-full">Related Projects</h3>
 
       <?php 
-      for($i= 0; $i < count($newrelated); $i++ )
+      
+        $query2 = 'SELECT thumbnail, title, media.id AS medID, projects.id AS proID FROM projects, media WHERE projects.thumbnail = media.id AND projects.id = $relatedlist[0] OR projects.id = $relatedlist[1] OR projects.id = $relatedlist[2]';
+        $stmt2 = $connection->prepare($query2);
 
-      echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html?q='.$row['relatedproject'].'.php"><div><img src="images/project_images/'.$row['folder'].'/'.$newrelated[$i].'" alt= "'.$row['title'].'"><p>'.$row['title'].'</div></a>'
+      while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+        echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html?q='.$row2['proID'].'.php"><div><img src="images/project_images/'.$row['folder'].'/'.$row2['thumbnail'].'" alt= "'.$row2['title'].'"><p>'.$row2['title'].'</div></a>';
+      }
+      
       
       ?>
 
-        <!--<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html">
-          <div>
-            <img src="images/related-1.svg" alt="Related Project 1">
-            <p>Pokemon Family</p>
-          </div>
-        </a>-->
     </section>
 
     <section id="port-top" class="grid-con">

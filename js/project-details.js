@@ -45,7 +45,7 @@
         galleryLightbox.style.display = "grid"
 
         const bigImage = document.createElement('img')
-        bigImage.src = `images/${this.dataset.folder}/project${this.dataset.member}b-${this.id}.svg`
+        bigImage.src = `images/project_images/${this.dataset.folder}/project${this.dataset.member}b-${this.id}.svg`
 
         imageZone.appendChild(bigImage)
         thumbnailZone.appendChild(thumbClone2)
