@@ -1,4 +1,4 @@
-(() => {
+export function fullprojects() {
     gsap.registerPlugin(ScrollToPlugin);
     const topButton = document.querySelector("#to-top")
 
@@ -9,4 +9,5 @@
     }
 
     topButton.addEventListener('click', smoothScrollTop)
-})();
+}
+    

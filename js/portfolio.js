@@ -1,4 +1,4 @@
-(() => {
+export function portfolio() {
     gsap.registerPlugin(ScrollToPlugin);
     const featuredArea = document.querySelector("#featured-slider")
     const portfolioSection = document.querySelectorAll(".psection-link")
@@ -107,4 +107,6 @@
 
     portfolioSection.forEach(link => link.addEventListener('click', smoothScrollSection))
     topButton.forEach(top => top.addEventListener('click', smoothScrollTop))
-})();
+
+}
+    

@@ -1,5 +1,4 @@
-(() => {
-
+export function video() {
     const video = document.querySelector("video"),
         videoControls = document.querySelector("#video-controls"),
         videoContainer = document.querySelector("#video-container"),
@@ -62,6 +61,4 @@
     video.addEventListener('mouseenter', showControls)
     video.addEventListener('mouseleave', hideControls)
     closeButton.addEventListener('click', stopVideo)
-
-})();
-
+}

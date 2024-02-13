@@ -1,4 +1,4 @@
-(() => {
+export function justLightning() {
     gsap.registerPlugin(PixiPlugin) 
     gsap.registerPlugin(TextPlugin)
 
@@ -106,4 +106,5 @@
 
         jlArea.appendChild(jlMessage)
     }
-})();
+}
+    

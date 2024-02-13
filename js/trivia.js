@@ -1,8 +1,6 @@
 import {questions} from './trivia-questions.js'
 
-(() => {
-    console.log('Emblem Engage!');
-
+export function trivia() {
     let question1 = document.querySelector ("#question_1");
     let question2 = document.querySelector ("#question_2");
     let question3 = document.querySelector ("#question_3");
@@ -603,7 +601,9 @@ import {questions} from './trivia-questions.js'
     question8.addEventListener('click', loadAnswer8);
     question9.addEventListener('click', loadAnswer9);
     question10.addEventListener('click', loadAnswer10);
-})();
+}
+
+    
 
 //AI Index:
 //*Note* These prompts were done and made over the summer before the AI rule came into place. I'm referencing from the chatlogs what I believe I used and referenced

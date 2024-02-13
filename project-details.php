@@ -31,10 +31,9 @@ $stmt = null;
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script defer src="js/project-details.js"></script>
-    <script defer src="js/main.js"></script>
+    <script type="module" defer src="js/main.js"></script>
 </head>
-<body>
+<body data-page="projectdetails">
     <h1 class="hidden">Project Details</h1>
     <header class="full-width-grid-con">
         <nav class="grid-con top-nav">

@@ -1,4 +1,4 @@
-(() => {
+export function WTP() {
     const answerArrow = document.querySelector("#answer-box")
 
     let tl = gsap.timeline();
@@ -22,4 +22,5 @@
     }
 
     answerArrow.addEventListener("click", showAnswer)
-})();
+}
+    

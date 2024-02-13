@@ -24,10 +24,9 @@ $cat = 0;
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script defer src="js/portfolio.js"></script>
-    <script defer src="js/main.js"></script>
+    <script type="module" defer src="js/main.js"></script>
 </head>
-<body>
+<body data-page="portfolio">
     <h1 class="hidden">Portfolio</h1>
     <header class="full-width-grid-con">
         <nav class="grid-con top-nav">
