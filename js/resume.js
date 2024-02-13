@@ -1,4 +1,4 @@
-(() => {
+export function resume() {
     gsap.registerPlugin(ScrollToPlugin);
     const topButton = document.querySelector("#to-top")
     const qualificationsButton = document.querySelector ("#qualifications-button");
@@ -43,4 +43,4 @@
     qualificationsButton.addEventListener("click", openQualifications)
     historyButton.addEventListener("click", openHistory)
     topButton.addEventListener('click', smoothScrollTop)
-})();
+}

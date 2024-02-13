@@ -1,4 +1,4 @@
-(() => {
+export function slider() {
     const sliderCon = document.querySelector("#hero-container");
     const heroSlider = document.querySelector('#bar');
     const left = document.querySelector('#left-image');
@@ -32,5 +32,5 @@
     heroSlider.addEventListener('mousedown', onDown)
     document.body.addEventListener('mouseup', onUp)
     document.body.addEventListener('mousemove', onMove)
-
-})();
+}
+    

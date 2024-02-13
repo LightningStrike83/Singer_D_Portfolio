@@ -34,10 +34,9 @@ $heading = $title['category'];
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/Flip.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script defer src="js/full-projects.js"></script>
-    <script defer src="js/main.js"></script>
+    <script type="module" defer src="js/main.js"></script>
 </head>
-<body>
+<body data-page="fullprojects">
     <h1 class="hidden">Full Projects</h1>
     <header class="full-width-grid-con">
         <nav class="grid-con top-nav">

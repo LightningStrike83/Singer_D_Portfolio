@@ -1,4 +1,4 @@
-(() => {
+export function projectDetails() {
     gsap.registerPlugin(ScrollToPlugin);
 
     const moreInfo = document.querySelector("#more-info-text")
@@ -68,4 +68,6 @@
 
     closeButton.addEventListener('click', closeLightbox)
     toTop.addEventListener('click', smoothScroll)
-})();
+
+}
+    
