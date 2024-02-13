@@ -9,7 +9,6 @@ export function genshinAPI() {
         fetch(`${baseURL}characters/search?model_type=Tall female`)
         .then(result => result.json())
         .then(function(result){
-            console.log(result.results)
             const characters = result.results
     
             characters.forEach(character => {

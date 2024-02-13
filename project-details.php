@@ -28,6 +28,13 @@ $stmt = null;
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicom/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicom/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicom/favicon-16x16.png">
+    <link rel="manifest" href="images/favicom/site.webmanifest">
+    <link rel="mask-icon" href="images/favicom/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
