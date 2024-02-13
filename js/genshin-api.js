@@ -1,25 +1,25 @@
-(() => {
+export function genshinAPI() {
     const characterBox = document.querySelector("#character-box")
     const detailsBox = document.querySelector("#details-box")
     const detailsTemplate = document.querySelector("#details-template")
     const baseURL = "https://gsi.fly.dev/"
     const ul = document.createElement("ul");
-
+    
     function characterPopulation(){
         fetch(`${baseURL}characters/search?model_type=Tall female`)
         .then(result => result.json())
         .then(function(result){
             console.log(result.results)
             const characters = result.results
-
+    
             characters.forEach(character => {
                 const li = document.createElement("li")
                 const p = document.createElement("p")
-
+    
                 li.setAttribute("class", "character-name")
                 p.textContent = character.name
                 li.dataset.member = character.id
-
+    
                 li.appendChild(p)
                 ul.appendChild(li)
             })
@@ -27,7 +27,7 @@
         })
         .then(function(){
             const characterName = document.querySelectorAll(".character-name")
-
+    
             characterName.forEach(name => {
                 name.addEventListener("click", characterDetails)
             })
@@ -36,12 +36,12 @@
             console.log(error)
         })
     }
-
+    
     characterPopulation()
-
+    
     function characterDetails(){
         const characterID = this.dataset.member
-
+    
         fetch(`${baseURL}characters/${characterID}`)
         .then(response => response.json())
         .then(function(response){
@@ -53,9 +53,9 @@
             const characterWeapon = template.querySelector("#character-weapon")
             const characterSplash = template.querySelector("#character-splash")
             const shortcut = response.result
-
+    
             detailsBox.innerHTML = ""
-
+    
             console.log(shortcut)
             characterName.textContent = shortcut.name
             characterRarity.src = `../images/genshin_images/${shortcut.rarity}.webp`
@@ -68,7 +68,7 @@
             characterSplash.src = `../images/genshin_images/character-${characterID}.webp`
             characterSplash.alt = `Splash art of ` + shortcut.name
             characterSplash.setAttribute("class", "splash-art")
-
+    
             detailsBox.appendChild(characterName)
             detailsBox.appendChild(characterRarity)
             detailsBox.appendChild(characterTitle)
@@ -78,4 +78,5 @@
         })
         .catch()
     }
-})();
+}
+

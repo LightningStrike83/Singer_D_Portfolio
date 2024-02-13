@@ -1,4 +1,4 @@
-(() => {
+export function contact() {
     const sendButton = document.querySelector("#submit-contact")
 
     function openCustomMessage() {
@@ -8,4 +8,5 @@
     }
 
     sendButton.addEventListener('click', openCustomMessage)
-})();
+}
+    
