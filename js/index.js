@@ -1,4 +1,4 @@
-(() => {
+export function index() {
     const demoReel = document.querySelector ("#demo-reel p")
     const roleQuote = document.querySelectorAll(".role-text")
     const chibiQuoteText = document.querySelector("#chibi-quote")
@@ -73,4 +73,4 @@
     demoReel.addEventListener('click', openDemoReel)
     roleQuote.forEach(role => role.addEventListener('click', chibiQuote))
     closeButton.addEventListener('click', closeLightbox)
-})();
+}

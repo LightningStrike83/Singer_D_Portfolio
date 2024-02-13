@@ -1,4 +1,4 @@
-(() => {
+export function about() {
     const professionalBio = document.querySelector("#professional-tab");
     const casualBio = document.querySelector("#personal-tab");
     const bioButton = document.querySelector("#about-bio-button p")
@@ -166,7 +166,7 @@
     professionalBio.addEventListener("click", proData)
     casualBio.addEventListener("click", casualData)
     bioButton.addEventListener("click", showBiography)
-})();
+}
 
 //AI Index:
 

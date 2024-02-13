@@ -1,16 +1,21 @@
-(() => {
-    console.log("Greetings and bienvenue!");
+console.log("Greetings and bienvenue!");
 
-    const hamMenu = document.querySelector(".hamburger")
-   
-    function openHamburgerMenu() {
-        let mobileMenu = document.querySelector(".navigation");
-        let socialMedia = document.querySelector(".social-media-header")
+import { hamburger } from "./hamburger.js"
+import { index } from "./index.js"
+import { genshinAPI } from "./genshin-api.js";
+import { about } from "./about.js";
+import { contact } from "./contact.js";
 
-        mobileMenu.classList.toggle("nav-appear");
-        socialMedia.classList.toggle("sm-appear");
-        hamMenu.classList.toggle("rotate");
-    }
+if (document.body.dataset.page !== 'index') {
+    hamburger()
+}
 
-    hamMenu.addEventListener('click', openHamburgerMenu)
-})();
+if (document.body.dataset.page === 'index') {
+    index();
+} else if (document.body.dataset.page = 'genshin') {
+    genshinAPI();
+} else if (document.body.dataset.page = 'about') {
+    about();
+} else if (document.body.dataset.page = 'contact') {
+    contact();
+}
