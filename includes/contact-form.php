@@ -1,6 +1,6 @@
 <?php
 
-require_once('connect.php');
+require_once('includes/connect.php');
 
 $pname = $_POST['preferred_name'];
 $email = $_POST['email'];

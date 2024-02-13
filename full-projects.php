@@ -5,7 +5,7 @@ Please see the bottom of this page for my thought process -->
 <html lang="en">
 <?php 
 
-require_once('connect.php');
+require_once('includes/connect.php');
 
 $query = 'SELECT projects.id AS proID, title, portfolio_image, category_id, category, category.id, folder FROM projects, category WHERE projects.category_id = category.id AND category_id = :categoryId';
 

@@ -2,7 +2,7 @@
 
 <?php
 
-require_once('connect.php');
+require_once('includes/connect.php');
 
 $stmt = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 1 ORDER BY category_id ASC LIMIT 6');
 $stmt->execute();
