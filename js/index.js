@@ -25,37 +25,29 @@ export function index() {
         demoReelLightBox.style.display = "grid";
     }
 
-    function chibiQuote(e) {
+    function chibiQuote() {
         let role = this.dataset.member
         const chibiHome = document.querySelector("#chibi-home")
-        let target = e.target.id
+        let target = chibiQuoteText.dataset.member
 
         if (chibiQuoteText.style.display === "flex") {
-            if (target = e.currentTarget.id) {
+            if (target === role) {
                 chibiQuoteText.style.display = "none";
                 chibiHome.src = "images/lightning_sprite.png"
             } else {
-                chibiQuoteText.style.display = "flex";
                 chibiQuoteText.textContent = chibiQuotes[role].quote;
                 chibiHome.src = "images/lightning_sprite_2.png"
+                target = role
+
+                console.log(target, role)
             }
         } else {
             chibiQuoteText.style.display = "flex";
             chibiQuoteText.textContent = chibiQuotes[role].quote;
             chibiHome.src = "images/lightning_sprite_2.png"
+
+            chibiQuoteText.setAttribute('data-member', role)
         }
-
-    //Note: I was trying to write an if/then statement so I could have the dialogue box close. This created an issue however of instead of changing the role text, it would close the box, which isn't inherently bad, but I would have to figure out a way to tell Javascript to detect which one was clicked and if the previous clicked role matches the one that is now being clicked, then close the dialogue box. If it doesn't match then display the appropriate text. Unfortunately, I ran out of time before figuring this out.
-    //I left this code in as proof of concept
-
-    //    if (chibiQuoteText.style.display === "flex") {
-    //     chibiQuoteText.style.display = "none";
-    //     chibiHome.src = "images/lightning_sprite.png"
-    //    } else {
-    //     chibiQuoteText.style.display = "flex";
-    //     chibiQuoteText.textContent = chibiQuotes[role].quote;
-    //     chibiHome.src = "images/lightning_sprite_2.png"
-    //    }
     }
 
     function closeLightbox() {
