@@ -55,7 +55,6 @@ export function genshinAPI() {
     
             detailsBox.innerHTML = ""
     
-            console.log(shortcut)
             characterName.textContent = shortcut.name
             characterRarity.src = `../images/genshin_images/${shortcut.rarity}.webp`
             characterRarity.alt = "Rarity of " + shortcut.name

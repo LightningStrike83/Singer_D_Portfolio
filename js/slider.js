@@ -2,9 +2,9 @@ export function slider() {
     const sliderCon = document.querySelector("#hero-container");
     const heroSlider = document.querySelector('#bar');
     const left = document.querySelector('#left-image');
-    dragging = false;
-    min = 0;
-    max = sliderCon.offsetWidth;
+    let dragging = false;
+    let min = 0;
+    let max = sliderCon.offsetWidth;
 
     function onDown() {
         dragging = true

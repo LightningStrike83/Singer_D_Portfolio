@@ -22,26 +22,26 @@ if (document.body.dataset.page !== 'index') {
 if (document.body.dataset.page === 'index') {
     index();
     video();
-} else if (document.body.dataset.page = 'genshin') {
+} else if (document.body.dataset.page === 'genshin') {
     genshinAPI();
-} else if (document.body.dataset.page = 'about') {
+} else if (document.body.dataset.page === 'about') {
     about();
-} else if (document.body.dataset.page = 'contact') {
+} else if (document.body.dataset.page === 'contact') {
     contact();
-} else if (document.body.dataset.page = 'fullprojects') {
+} else if (document.body.dataset.page === 'fullprojects') {
     fullprojects();
-} else if (document.body.dataset.page = 'justlightning') {
+} else if (document.body.dataset.page === 'justlightning') {
     justLightning();
-} else if (document.body.dataset.page = 'portfolio') {
+} else if (document.body.dataset.page === 'portfolio') {
     portfolio();
-} else if (document.body.dataset.page = 'projectdetails') {
+} else if (document.body.dataset.page === 'projectdetails') {
     projectDetails();
-} else if (document.body.dataset.page = 'resume') {
+} else if (document.body.dataset.page === 'resume') {
     resume();
-} else if (document.body.dataset.page = 'slider') {
+} else if (document.body.dataset.page === 'slider') {
     slider();
-} else if (document.body.dataset.page = 'trivia') {
+} else if (document.body.dataset.page === 'trivia') {
     trivia();
-} else if (document.body.dataset.page = 'wtp') {
+} else if (document.body.dataset.page === 'wtp') {
     WTP();
 }
