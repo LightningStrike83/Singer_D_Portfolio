@@ -37,9 +37,7 @@ export function index() {
             } else {
                 chibiQuoteText.textContent = chibiQuotes[role].quote;
                 chibiHome.src = "images/lightning_sprite_2.png"
-                target = role
-
-                console.log(target, role)
+                chibiQuoteText.setAttribute('data-member', role)
             }
         } else {
             chibiQuoteText.style.display = "flex";
