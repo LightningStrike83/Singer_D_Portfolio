@@ -7,7 +7,7 @@ export function contactMessage() {
 
     function contactFeedback(event) {
         event.preventDefault();
-        const url = "contact-form.php"
+        const url = "includes/contact-form.php"
         const thisform = this
 
         
