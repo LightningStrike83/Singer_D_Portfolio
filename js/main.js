@@ -14,6 +14,7 @@ import { slider } from "./slider.js";
 import { trivia } from "./trivia.js";
 import { video } from "./video.js";
 import { WTP } from "./wtp.js";
+import { contactMessage } from "./contact-message.js";
 
 if (document.body.dataset.page !== 'index') {
     hamburger()
@@ -28,6 +29,7 @@ if (document.body.dataset.page === 'index') {
     about();
 } else if (document.body.dataset.page === 'contact') {
     contact();
+    contactMessage();
 } else if (document.body.dataset.page === 'fullprojects') {
     fullprojects();
 } else if (document.body.dataset.page === 'justlightning') {

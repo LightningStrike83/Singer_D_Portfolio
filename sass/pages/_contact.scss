@@ -66,6 +66,10 @@
     }
 
     #contact-d {
-        align-items: flex-end;
+        align-items: flex-start;
+
+        #submit-contact {
+            align-self: flex-end;
+        }
     }
 }
