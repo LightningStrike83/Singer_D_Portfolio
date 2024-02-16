@@ -2,7 +2,7 @@
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-require_once('includes/connect.php');
+require_once('connect.php');
 
 $errors = array();
 
@@ -40,7 +40,8 @@ if ($errcount > 0) {
 } else {
     $query = "INSERT INTO contacts (preferred_name, email, phone, website_company, subject_line, comments) VALUES ('$pname', '$email', '$phone', '$website', '$subject', '$comments')";
 
-    $qpartner = mysqli_query($connection, $query);
+    $stmt = $connection->prepare($query);
+    $stmt->execute();
 
     $to = 'd.singer042@gmail.com';
     $subject = 'Message From Portfolio';
