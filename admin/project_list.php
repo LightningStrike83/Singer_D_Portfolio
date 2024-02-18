@@ -2,6 +2,12 @@
 <html lang="en">
 
 <?php
+session_start();
+
+if(!$_SESSION['username']) {
+    header('Location: login_form.php');
+}
+
 require_once('../connect.php');
 
 $stmt = $connection->prepare('SELECT id, title FROM projects ORDER BY id ASC');
