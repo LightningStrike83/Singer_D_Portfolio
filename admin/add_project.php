@@ -1,5 +1,4 @@
 <?php
-print_r($_POST);
 require_once('../connect.php');
 
 $query = "INSERT INTO projects (title, category_id, description, client_id, link_id, case_study, portfolio_image) VALUES (?, ?, ?, ?, ?, ?, ?)";
