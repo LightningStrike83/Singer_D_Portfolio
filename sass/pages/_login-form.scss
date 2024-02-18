@@ -1,0 +1,22 @@
+@use "../abstracts/variables" as c;
+
+#login-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid c.$green;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    label {
+        color: white;
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
+#login-button {
+    width: 50px;
+}

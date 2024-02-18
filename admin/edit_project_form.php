@@ -3,6 +3,12 @@
 
 <?php
 
+session_start();
+
+if(!$_SESSION['username']) {
+    header('Location: login_form.php');
+}
+
 require_once('../includes/connect.php');
 $query = 'SELECT * FROM projects WHERE projects.id = :projectId';
 $stmt = $connection->prepare($query);
