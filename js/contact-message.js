@@ -3,8 +3,6 @@ export function contactMessage() {
     const feedback = document.querySelector("#feedback-area")
     const messageConfirm = document.querySelector("#confirm-send")
 
-    console.log("Boo")
-
     function contactFeedback(event) {
         event.preventDefault();
         const url = "includes/contact-form.php"

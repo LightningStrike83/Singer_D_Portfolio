@@ -4,11 +4,17 @@
 
 require_once('includes/connect.php');
 
-$stmt = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 1 ORDER BY category_id ASC LIMIT 6');
+$stmt = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 1 ORDER BY category_id ASC LIMIT 9');
 $stmt->execute();
 
 $stmt2 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 2 ORDER BY category_id ASC LIMIT 4');
 $stmt2->execute();
+
+$stmt3 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 3 ORDER BY category_id ASC LIMIT 5');
+$stmt3->execute();
+
+$stmt4 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 4 ORDER BY category_id ASC LIMIT 3');
+$stmt4->execute();
 
 $cat = 0;
 ?>
@@ -172,75 +178,14 @@ $cat = 0;
       <div class="col-span-full portfolio-pieces">
         <h3>Image Creations and Edits</h3>
         <div class="project-container">
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/yumi-art.svg" alt="Birthday Art For Yumichan216">
-              <p class="project-title-image">Pokemon Family (Gift)</p>
-            </div>
-          </a>
+          <?php
+          while($row = $stmt3->fetch(PDO::FETCH_ASSOC)){
+            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/images/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-image">'.$row['title'].'</p></div></a>';
+            $cat = $row['category_id'];
+            }
 
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/monika-image.svg" alt="Just Monika">
-              <p class="project-title-image">Just Monika</p>
-            </div>
-          </a>
 
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/pixel-image.svg" alt="Trainer Pixel Sprite">
-              <p class="project-title-image">Trainer Pixel Sprite</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/slender-image.svg" alt="Slender Man">
-              <p class="project-title-image">Slender Man</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/earbuds-image.svg" alt="Ear Buds">
-              <p class="project-title-image">Ear Buds</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/mudkip-image.svg" alt="Mudkip">
-              <p class="project-title-image">Mudkip</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/red-image.svg" alt="Red">
-              <p class="project-title-image">Red</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/gif-thumb.svg" alt="Running Pixel">
-              <p class="project-title-image">Running Pixel</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/peach-image.svg" alt="Princess Peach">
-              <p class="project-title-image">Princess Peach</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img src="images/project-thumbnails/images/ow-image.svg" alt="Overwatch Skins">
-              <p class="project-title-image">Overwatch Skins</p>
-            </div>
-          </a>
+          ?>
         </div>
         <div class="port-more">
           <a class="to-top" href="#port-intro">&#x2191; To Top</a>
@@ -260,47 +205,12 @@ $cat = 0;
       <div class="col-span-full portfolio-pieces">
         <h3>Miscellaneous Projects</h3>
         <div class="project-container">
-          <a href="project-details.html">
-            <div class="code-project">
-              <img class="misc-img" src="images/project-thumbnails/misc/crossroads.svg" alt="The Crossroads Of Life">
-              <p class="project-title-misc">The Crossroads Of Life</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img class="misc-img" src="images/project-thumbnails/misc/wof.svg" alt="Wheel of Fortune Game">
-              <p class="project-title-misc">Wheel of Fortune Game</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img class="misc-img" src="images/project-thumbnails/misc/trivia.svg" alt="Trivia Game">
-              <p class="project-title-misc">Trivia Game</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img class="misc-img" src="images/project-thumbnails/misc/halloween.svg" alt="Loss, and the Dire Mistakes of One Determined Princess">
-              <p class="project-title-misc">Loss, and the Dire Mistakes of One Determined Princess</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img class="misc-img" src="images/project-thumbnails/misc/jeopardy.svg" alt="Jeopardy Game">
-              <p class="project-title-misc">Jeopardy Game</p>
-            </div>
-          </a>
-
-          <a href="project-details.html">
-            <div class="code-project">
-              <img class="misc-img" src="images/project-thumbnails/misc/haunted-halls.svg" alt="The Haunted Halls of Garreg Mach">
-              <p class="project-title-misc">The Haunted Halls of Garreg Mach</p>
-            </div>
-          </a>
+          <?php
+            while($row = $stmt4->fetch(PDO::FETCH_ASSOC)){
+              echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/misc/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-misc">'.$row['title'].'</p></div></a>';
+              $cat = $row['category_id'];
+            }
+          ?>
         </div>
         <div class="port-more">
           <a class="to-top" href="#port-intro">&#x2191; To Top</a>
