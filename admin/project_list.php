@@ -34,7 +34,7 @@ $stmt->execute();
 
     <div id="project-add-form" class="col-span-2 m-col-span-5">
         <p id="add-title">Add A New Project</p>
-        <form action="add_project.php" method="POST">
+        <form action="add_project.php" method="POST" enctype="multipart/form-data">
             <label class="admin-label" for="title">Project Title:</label><br>
             <input class="admin-input" name="title" type="text" required><br><br>
             <label class="admin-label" for="category_id">Category (ID):</label><br>
@@ -43,8 +43,8 @@ $stmt->execute();
             <input class="admin-input" name="client_id" type="number" min="1" required><br><br>
             <label class="admin-label" for="link_id">Link (ID):</label><br>
             <input class="admin-input" name="link_id" type="number" min="1" required><br><br>
-            <label class="admin-label" for="project_image">Project Image:</label><br>
-            <input class="admin-input" name="project_image" type="text" required><br><br>
+            <label class="admin-label" for="portfolio_image">Portfolio Image:</label><br>
+            <input id="add-image-upload" class="admin-input" name="portfolio_image" type="file" required><br><br>
             <label class="admin-label" for="description">Project Description:</label><br>
             <textarea class="admin-input" name="description" required></textarea><br><br>
             <label class="admin-label" for="case_study">Project Case Study:</label><br>
