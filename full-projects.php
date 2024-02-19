@@ -7,7 +7,7 @@ Please see the bottom of this page for my thought process -->
 
 require_once('includes/connect.php');
 
-$query = 'SELECT projects.id AS proID, title, portfolio_image, category_id, category, category.id, folder FROM projects, category WHERE projects.category_id = category.id AND category_id = :categoryId';
+$query = 'SELECT projects.id AS proID, title, portfolio_image, category_id, category, category.id, folder, image_path FROM projects, category, media WHERE projects.category_id = category.id AND projects.portfolio_image = media.id AND category_id = :categoryId';
 
 $stmt = $connection->prepare($query);
 $categoryId = $_GET['cat'];
@@ -94,7 +94,7 @@ $heading = $title['category'];
 
             <?php
                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo '<a class="'.$row['folder'].'-thumbnail" href="project-details.php?id='.$row['proID'].'"><div class="code-project"><img src="images/project_images/'.$row['folder'].'/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a>';
+                    echo '<a class="'.$row['folder'].'-thumbnail" href="project-details.php?id='.$row['proID'].'"><div class="code-project"><img src="images/project_images/'.$row['folder'].'/'.$row['image_path'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a>';
                 }
 
             ?>
