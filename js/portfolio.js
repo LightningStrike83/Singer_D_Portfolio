@@ -9,16 +9,19 @@ export function portfolio() {
         {
             source : "featured-1",
             text : "Sunbiscuit Portfolio",
+            projectID: "8"
         },
         
         {
             source : "featured-2",
             text : "Create Your Own Pokedex",
+            projectID: "1"
         },
 
         {
             source : "featured-3",
             text : "Hoenn Music Mixer",
+            projectID: "5"
         },
     ]
 
@@ -31,7 +34,7 @@ export function portfolio() {
         let leftArrow = document.createElement('p')
         let rightArrow = document.createElement('p')
 
-        featuredDirect.href = "project-details.html"
+        featuredDirect.href =  `project-details.php?id=${featuredInfo[count].projectID}`
 
         featuredImage.src = `images/${featuredInfo[count].source}.png`
         

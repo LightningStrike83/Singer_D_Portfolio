@@ -94,7 +94,7 @@ $heading = $title['category'];
 
             <?php
                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo '<a class="'.$row['folder'].'-thumbnail" href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/'.$row['folder'].'/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a>';
+                    echo '<a class="'.$row['folder'].'-thumbnail" href="project-details.php?id='.$row['proID'].'"><div class="code-project"><img src="images/project_images/'.$row['folder'].'/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a>';
                 }
 
             ?>
@@ -111,37 +111,3 @@ $heading = $title['category'];
     </footer>
 </body>
 </html>
-
-<!-- Note to Professor Haaf:
-This is my attempt at converting one of my html pages into a php page and I just wanted to review what I was attempting to do. I realize I may not have mastered it yet, but I wanted to make an attempt!
-
-1. This page dynamically changes based on what category of project is selected. Front-End, Video, etc. and displays all content from that category
-
-2. The main elements I'm pulling from the database are the h3 title, the image paths, and the project names
-
-3. With the explanations below, I realize I might be missing and/or overthinking a few hookups to make it work. If I am, I apologize ^^; I'm just trying to work through a process based on what I know currently so it definitely is rocky with a few snags.
-
-4. This is why I chose the elements for $query up top:
-    -category from the projects table so the page knows what type of project it is and to display it as the H3
-
-    -I believe I need a link for category_id in projects table and category_id in the category table so that way there's a dynamic link. What I want to say is: "The link on the previous page is calling upon category_id from projects_table, so here's the dynamic link to the category table so you can display the type of project as an h3" Admittedly I do feel like I'm missing something or overthinking this but this is the attempt~
-
-    -title from projects table so the page can pull and display the project name
-
-    -image_path from images table so the page can pull the image source
-
-    -image_id and page_id are brought in as well because without them, the database won't discriminate images on their project id. Something that may only be on a details page will get populated here too. So this linking table is meant to create that discrimination. So it's essentially checking for all images that are associated with project ids, then checking those image ids and seeing if the page id matches as well. If it is, then it's accessing the pathway and filling in the image source
-
-    -project_id from the project table so it knows where to redirect the user when the link is clicked on and so that way there's a link for the page to look for and access image pathways in the database that match what wants to be shown
-
-5. Essentially, what I'm trying to tell the database is:
-    The previous page is calling upon category_id to link to this page and display all projects that match the category id. Dynamically change the h3 title to the category of project it is. Then, with all the results you've found, create images and text that match all ids from your results, but the images are only if it belongs on the page. Finally, slap a link on top of those images and text that will redirect the user to the specific project page
-
-    Or to put it another way: "I want to see all front end projects, which is the id of 1 in the category table. So make an array that have "1" in category_id in the projects table. So take all those of those results' titles and slap them on the page. While you're at it, take a quick check in the images table and if there's any project ids that are populating this page and match, and those images are a part of this page, bring in that image too.
-
-6. My explanation about the images and pages might be a little rough so let me put it like this:
-    -The page is checking for project ids. Say images of Iron Man, Spider-Man, and Doctor Strange are relevant but I only want to display Iron Man on the page for right now
-    -The linking table will take the image of Iron Man and make sure that's the only one that gets populated on the page and saves Spider-Man and Doctor Strange for later. Without the isolation, it will populate Spider-Man and Doctor Strange
-
-7. I realize I might be a little in over my head right now, or overthinking things, but I wanted to make an attempt and try and demonstrate my knowledge and understanding~ At least, what I do know. The process might be simpler, or more complicated, than I'm making it out to be but I'm trying! :D-->
-

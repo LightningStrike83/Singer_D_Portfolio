@@ -13,7 +13,7 @@ $stmt2->execute();
 $stmt3 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 3 ORDER BY category_id ASC LIMIT 5');
 $stmt3->execute();
 
-$stmt4 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 4 ORDER BY category_id ASC LIMIT 3');
+$stmt4 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 4 ORDER BY category_id ASC LIMIT 4');
 $stmt4->execute();
 
 $cat = 0;
