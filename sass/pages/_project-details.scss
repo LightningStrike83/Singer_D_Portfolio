@@ -12,6 +12,7 @@
 
 #main-image {
     margin-bottom: 30px;
+    border: 1px solid white;
 }
 
 
@@ -114,9 +115,7 @@
 #primary-lb-image {
     display: flex;
     justify-content: center;
-    img {
-        max-width: 50%;
-    }
+    max-height: 400px;
 }
 
 @media screen and (min-width: 768px) {

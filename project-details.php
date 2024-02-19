@@ -151,13 +151,13 @@ $stmt = null;
       <h3 class="col-span-full">Related Projects</h3>
 
       <?php   
-        $query2 = 'SELECT thumbnail, title, media.id AS medID, projects.id AS proID FROM projects, media WHERE projects.thumbnail = media.id AND projects.id = $relatedlist[0] OR projects.id = $relatedlist[1] OR projects.id = $relatedlist[2]';
-        $stmt2 = $connection->prepare($query2);
-        $stmt2->execute();
+        // $query2 = 'SELECT thumbnail, title, media.id AS medID, projects.id AS proID FROM projects, media WHERE projects.thumbnail = media.id AND projects.id = $relatedlist[0] OR projects.id = $relatedlist[1] OR projects.id = $relatedlist[2]';
+        // $stmt2 = $connection->prepare($query2);
+        // $stmt2->execute();
 
-        while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-          echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html?q='.$row2['proID'].'.php"><div><img src="images/project_images/'.$row['folder'].'/'.$row2['thumbnail'].'" alt= "'.$row2['title'].'"><p>'.$row2['title'].'</div></a>';
-        }
+        // while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+        //   echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html?q='.$row2['proID'].'.php"><div><img src="images/project_images/'.$row['folder'].'/'.$row2['thumbnail'].'" alt= "'.$row2['title'].'"><p>'.$row2['title'].'</div></a>';
+        // }
       
       
       ?>
@@ -182,7 +182,7 @@ $stmt = null;
           <a href="#details-content" class="lb_close">X</a>
         </div>
 
-        <div id="primary-lb-image" class="col-span-full m-col-start-3 m-col-end-9"></div>
+        <div id="primary-lb-image" class="col-span-full m-col-span-5"></div>
 
         <section class="col-span-full divider">
           <h2 class="hidden">Divider</h2>
