@@ -4,16 +4,16 @@
 
 require_once('includes/connect.php');
 
-$stmt = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 1 ORDER BY category_id ASC LIMIT 9');
+$stmt = $connection->prepare('SELECT projects.id, title, portfolio_image, category_id, image_path FROM projects, media WHERE projects.category_id = 1 AND portfolio_image = media.id ORDER BY category_id ASC LIMIT 9');
 $stmt->execute();
 
-$stmt2 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 2 ORDER BY category_id ASC LIMIT 4');
+$stmt2 = $connection->prepare('SELECT projects.id, title, portfolio_image, category_id, image_path FROM projects, media WHERE projects.category_id = 2 AND portfolio_image = media.id ORDER BY category_id ASC LIMIT 4');
 $stmt2->execute();
 
-$stmt3 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 3 ORDER BY category_id ASC LIMIT 5');
+$stmt3 = $connection->prepare('SELECT projects.id, title, portfolio_image, category_id, image_path FROM projects, media WHERE projects.category_id = 3 AND portfolio_image = media.id ORDER BY category_id ASC LIMIT 5');
 $stmt3->execute();
 
-$stmt4 = $connection->prepare('SELECT id, title, portfolio_image, category_id FROM projects WHERE projects.category_id = 4 ORDER BY category_id ASC LIMIT 4');
+$stmt4 = $connection->prepare('SELECT projects.id, title, portfolio_image, category_id, image_path FROM projects, media WHERE projects.category_id = 4 AND portfolio_image = media.id ORDER BY category_id ASC LIMIT 4');
 $stmt4->execute();
 
 $cat = 0;
@@ -115,7 +115,7 @@ $cat = 0;
         <?php
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/front/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a><br><br>';
+            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/front/'.$row['image_path'].'" alt="'.$row['title'].'"><p class="project-title-front">'.$row['title'].'</p></div></a><br><br>';
             $cat = $row['category_id'];
         }
 
@@ -152,7 +152,7 @@ $cat = 0;
            <?php
 
             while($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
-            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/video/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-video">'.$row['title'].'</p></div></a>';
+            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/video/'.$row['image_path'].'" alt="'.$row['title'].'"><p class="project-title-video">'.$row['title'].'</p></div></a>';
             $cat = $row['category_id'];
             }
 
@@ -180,7 +180,7 @@ $cat = 0;
         <div class="project-container">
           <?php
           while($row = $stmt3->fetch(PDO::FETCH_ASSOC)){
-            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/images/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-image">'.$row['title'].'</p></div></a>';
+            echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/images/'.$row['image_path'].'" alt="'.$row['title'].'"><p class="project-title-image">'.$row['title'].'</p></div></a>';
             $cat = $row['category_id'];
             }
 
@@ -207,7 +207,7 @@ $cat = 0;
         <div class="project-container">
           <?php
             while($row = $stmt4->fetch(PDO::FETCH_ASSOC)){
-              echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/misc/'.$row['portfolio_image'].'" alt="'.$row['title'].'"><p class="project-title-misc">'.$row['title'].'</p></div></a>';
+              echo '<a href="project-details.php?id='.$row['id'].'"><div class="code-project"><img src="images/project_images/misc/'.$row['image_path'].'" alt="'.$row['title'].'"><p class="project-title-misc">'.$row['title'].'</p></div></a>';
               $cat = $row['category_id'];
             }
           ?>
