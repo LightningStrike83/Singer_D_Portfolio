@@ -4,6 +4,8 @@ export function genshinAPI() {
     const detailsTemplate = document.querySelector("#details-template")
     const baseURL = "https://gsi.fly.dev/"
     const ul = document.createElement("ul");
+
+    let paimon = `<img id="paimon" src="../Singer_D_Portfolio/images/genshin_images/paimon.gif">`
     
     function characterPopulation(){
         fetch(`${baseURL}characters/search?model_type=Tall female`)
@@ -40,6 +42,13 @@ export function genshinAPI() {
     
     function characterDetails(){
         const characterID = this.dataset.member
+        const p = document.createElement("p")
+
+        p.setAttribute("class", "loading-text")
+        p.textContent = "Loading..."
+
+        detailsBox.innerHTML = paimon
+        detailsBox.appendChild(p)
     
         fetch(`${baseURL}characters/${characterID}`)
         .then(response => response.json())

@@ -1,7 +1,7 @@
     let questions = [
 
         {
-            question : "What is Delilah's operating system preference?",
+            question : "What is Delilah's operating system preference? (About)",
             answer1 : "A: Mac",
             answer2 : "B: Linux",
             answer3 : "C: Windows",
@@ -9,15 +9,15 @@
         },
     
         {
-            question : "What song plays during Delilah's demo reel?",
-            answer1 : "A: Take Me Anywhere- NateWantsToBattle",
-            answer2 : "B: Buttercup- MixandMash",
-            answer3 : "C: Monkeys Spinning Monkeys- Kevin MacLeod",
-            answer4 : "D: Boneless Pizza -Give Heart Beats",
+            question : "What motivates Delilah to create? (About)",
+            answer1 : "A: Seeing other people's projects be brought to life",
+            answer2 : "B: The pursuit of riches",
+            answer3 : "C: The hope that one day, she'll be noticed by her dream company",
+            answer4 : "D: Spite",
         },
     
         {
-            question : "Which convention did Delilah co-win the 'Cutest of the Con' contest?",
+            question : "Which convention did Delilah co-win the 'Cutest of the Con' contest? (Resume)",
             answer1 : "A: EmblemCon",
             answer2 : "B: Anime North",
             answer3 : "C: SawkCon",
@@ -25,7 +25,7 @@
         },
     
         {
-            question : "Which of these are Delilah's strong suits?",
+            question : "Which of these are Delilah's strong suits? (About)",
             answer1 : "A: Video Editing",
             answer2 : "B: Writing",
             answer3 : "C: Front-End Coding",
@@ -33,7 +33,7 @@
         },
     
         {
-            question : "What is one of Delilah's favourite hobbies?",
+            question : "What is one of Delilah's favourite hobbies? (About)",
             answer1 : "A: Playing tennis",
             answer2 : "B: Cosplaying",
             answer3 : "C: Collecting vintage coins",
@@ -41,7 +41,7 @@
         },
     
         {
-            question : "What type of projects does Delilah primarily create in her free-time?",
+            question : "What type of projects does Delilah primarily create in her free-time? (Portfolio)",
             answer1 : "A: Mock Up movie posters",
             answer2 : "B: Fixing websites that need responsive design",
             answer3 : "C: Pokemon-related projects",
@@ -49,7 +49,7 @@
         },
     
         {
-            question : "What type of assets are Delilah's favourite to create?",
+            question : "What type of assets are Delilah's favourite to create? (Portfolio)",
             answer1 : "A: Full images using Paint Tool SAI",
             answer2 : "B: Pixel art",
             answer3 : "C: High Fidelity Prototypes",
@@ -57,7 +57,7 @@
         },
     
         {
-            question : "How many years did Delilah self-run an entire Youtube channel?",
+            question : "How many years did Delilah self-run an entire Youtube channel? (Resume)",
             answer1 : "A: Just 1",
             answer2 : "B: 2",
             answer3 : "C: 4",
@@ -65,7 +65,7 @@
         },
     
         {
-            question : "What is Delilah's primary career aspiration?",
+            question : "What is Delilah's primary career aspiration? (About)",
             answer1 : "A: Work up the corporate ladder and reach a high-ranking position",
             answer2 : "B: Make enough money to open up a small business",
             answer3 : "C: To work with a reputable company and create things to make others happy",
@@ -73,7 +73,7 @@
         },
     
         {
-            question : "What is the name of the person running this portfolio?",
+            question : "What is the name of the person running this portfolio? (Everywhere)",
             answer1 : "A: Not this one",
             answer2 : "B: Delilah Singer",
             answer3 : "C: Not this one either",
