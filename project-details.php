@@ -17,7 +17,7 @@ $new = array_values($imageslist);
 sort($new);
 $relatedlist = array_unique($related);
 $newrelated = array_values($relatedlist);
-print_r($imageslist);
+print_r($new);
 $stmt = null;
 ?>
 
@@ -89,7 +89,7 @@ $stmt = null;
           <div id="image-con">
 
           <?php 
-          echo '<img id="main-image" src="images/project_images/'.$row['folder'].'/'.$new[0].'" alt="Image of '.$row['title'].'">'
+          echo '<img id="main-image" src="images/project_images/'.$row['folder'].'/'.$new[1].'" alt="Image of '.$row['title'].'">'
           ?>
       
             <template id="gallery-thumbs-template"><div id="gallery-thumbs">
