@@ -1,13 +1,12 @@
 <?php
 require_once('../connect.php');
 
-$query = "INSERT INTO projects (title, category_id, description, client_id, link_id, case_study, portfolio_image) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$query = "INSERT INTO projects (title, category_id, description, client_id, link_id, case_study) VALUES (?, ?, ?, ?, ?, ?)";
+$query2 = "INSERT INTO media (image_path) VALUES (?)";
 
 $target_file = '../images/project_images/'.($_FILES['portfolio_image']['name']);
 $imageFileType = strtolower(pathinfo($_FILES['portfolio_image']['name'], PATHINFO_EXTENSION));
 move_uploaded_file($_FILES['portfolio_image']['tmp_name'], $target_file);
-
-print_r($target_file);
 
 $stmt = $connection->prepare($query);
 $stmt->bindParam(1, $_POST['title'], PDO::PARAM_STR);
@@ -16,17 +15,19 @@ $stmt->bindParam(3, $_POST['description'], PDO::PARAM_STR);
 $stmt->bindParam(4, $_POST['client_id'], PDO::PARAM_INT);
 $stmt->bindParam(5, $_POST['link_id'], PDO::PARAM_INT);
 $stmt->bindParam(6, $_POST['case_study'], PDO::PARAM_STR);
-$stmt->bindParam(7, $_POST[$target_file], PDO::PARAM_STR);
+
+$stmt2 = $connection->prepare($query2);
+$stmt2->bindParam(1, $_POST[$target_file], PDO::PARAM_STR);
 
 if($imageFileType != 'svg') {
         echo 'Sorry, only SVG files are allowed.';
         $uploadOk = 0;
-    } else{
-
-    }
+    } else{}
 
 $stmt->execute();
+$stmt2->execute();
 $stmt = null;
+$stmt2 = null;
 //header('Location: project_list.php');
 
 ?>

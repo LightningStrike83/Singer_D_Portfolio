@@ -56,14 +56,14 @@ export function genshinAPI() {
             detailsBox.innerHTML = ""
     
             characterName.textContent = shortcut.name
-            characterRarity.src = `../images/genshin_images/${shortcut.rarity}.webp`
+            characterRarity.src = `../Singer_D_Portfolio/images/genshin_images/${shortcut.rarity}.webp`
             characterRarity.alt = "Rarity of " + shortcut.name
             characterRarity.setAttribute("class", "rarity")
             characterTitle.textContent = shortcut.title[0]
             characterTitle.setAttribute("class", "title")
             characterVision.textContent = "Vision: " + shortcut.vision
             characterWeapon.textContent = "Weapon: " + shortcut.weapon
-            characterSplash.src = `../images/genshin_images/character-${characterID}.webp`
+            characterSplash.src = `../Singer_D_Portfolio/images/genshin_images/character-${characterID}.webp`
             characterSplash.alt = `Splash art of ` + shortcut.name
             characterSplash.setAttribute("class", "splash-art")
     

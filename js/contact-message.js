@@ -5,7 +5,7 @@ export function contactMessage() {
 
     function contactFeedback(event) {
         event.preventDefault();
-        const url = "../includes/contact-form.php"
+        const url = "../Singer_D_Portfolio/includes/contact-form.php"
         const thisform = this
 
         
@@ -13,10 +13,10 @@ export function contactMessage() {
         const formData =
         "pname=" + thisform.elements.preferred_name.value +
         "&email=" + thisform.elements.email.value +
+        "&phone=" + thisform.elements.phone.value +
+        "&website=" + thisform.elements.website.value +
         "&subject=" + thisform.elements.subject.value +
         "&message=" + thisform.elements.comments.value;
-
-        console.log(formData)
 
         fetch (url, {
             method: "POST",
@@ -31,11 +31,15 @@ export function contactMessage() {
             feedback.innerHTML = "";
 
             if (responseText.errors) {
-                responseText.errors.forEach(error => {
-                    const errorText = document.createElement("p")
-                    errorText.textContent = error
-                    feedback.appendChild(errorText);
+                const obj = responseText.errors
+                const value = Object.values(obj);
+
+                value.forEach(valueInfo => {
+                    const p = document.createElement("p")
+                    p.textContent = valueInfo
+                    feedback.appendChild(p)
                 })
+
             } else {
                 contactForm.reset();
                 const sendConfirm = document.createElement("p")
@@ -48,7 +52,7 @@ export function contactMessage() {
             feedback.innerHTML = ""
             const errorMessage = document.createElement("p")
 
-            errorMessage.textContent = "Sorry, your browser doesn't seem to be support AJAX. Apologies!"
+            errorMessage.textContent = "Sorry, something went wrong!"
 
             feedback.appendChild(errorMessage)
         })
