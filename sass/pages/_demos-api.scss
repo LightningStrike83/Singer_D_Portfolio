@@ -41,6 +41,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    align-content: center;
     p, img {
         margin-left: 5%;
         margin-right: 5%;
@@ -62,6 +63,15 @@
 .splash-art {
     max-width: 90%;
     margin-bottom: 10px;
+}
+
+.loading-text {
+    text-align: center;
+}
+
+#paimon {
+    max-width: 50%;
+    justify-self: center;
 }
 
 @media screen and (min-width: 768px) {
