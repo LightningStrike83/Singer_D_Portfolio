@@ -8,8 +8,8 @@ export function portfolio() {
     let featuredInfo = [
         {
             source : "featured-1",
-            text : "Sunbiscuit Portfolio",
-            projectID: "8"
+            text : "Pokemon Trainer Website",
+            projectID: "9"
         },
         
         {
