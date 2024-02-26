@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 require_once('includes/connect.php');
-$query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, GROUP_CONCAT(related_project_id) AS relatedproject, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, image_description, folder, portfolio_image, category_id, main_project_id, thumbnail FROM projects, clients, links, media, projects_software, software, category, related WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.category_id = category.id AND related.main_project_id = projects.id AND projects.id = :projectId ORDER BY images ASC';
+$query = 'SELECT GROUP_CONCAT(software_name) AS software_name, GROUP_CONCAT(image_path) AS images, GROUP_CONCAT(related_project_id) AS relatedproject, GROUP_CONCAT(image_description) AS imagedesc, title, description, client_id, projects.link_id AS projectLink, case_study, client_name, link, folder, portfolio_image, category_id, main_project_id, thumbnail, image_description FROM projects, clients, links, media, projects_software, software, category, related WHERE projects.client_id = clients.id AND projects.link_id = links.id AND media.project_id = projects.id AND projects_software.project_id = projects.id AND projects_software.software_id = software.id AND media.project_id = projects.id AND projects.category_id = category.id AND related.main_project_id = projects.id AND projects.id = :projectId ORDER BY images ASC';
 
 $stmt = $connection->prepare($query);
 $projectId = $_GET['id'];
@@ -11,13 +11,20 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $images = explode(",", $row['images']);
 $software = explode(",", $row['software_name']);
 $related = explode(",", $row['relatedproject']);
+$imagedesc = explode(",", $row['imagedesc']);
+
 $softwarelist = array_unique($software);
 $imageslist =  array_unique($images);
 $new = array_values($imageslist);
 sort($new);
+
+$descriptions = array_unique($imagedesc);
+$newdesc = array_values($descriptions);
+sort($newdesc);
+
 $relatedlist = array_unique($related);
 $newrelated = array_values($relatedlist);
-print_r($new);
+
 $stmt = null;
 ?>
 
@@ -39,6 +46,7 @@ $stmt = null;
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
     <script type="module" defer src="js/main.js"></script>
 </head>
 <body data-page="projectdetails">
@@ -128,16 +136,7 @@ $stmt = null;
         
         echo '<br><br>Client:<br> '.$row['client_name'].'<br><br>Link:<br> <a href="'.$row['link'].'">'.$row['title'].'</a><br><br>Description:<br>'.$row['description'].'<br><br>Case Study:<br>'.$row['case_study'].'</p></div>';
         
-        ?>  
-          
-        <!--<div id="text-con">
-          <p>Project Name:<br> Sunbiscuit Portfolio<br><br>
-            Software Used:<br> VS Code<br><br>
-            Client:<br> Sunbiscuit<br><br>
-            Link:<br> <a href="https://sunbiscuit.wixsite.com/portfolio">Sunbiscuit's Portfolio</a><br><br>
-            Description:<br> A revamp of Sunbiscuit's portfolio website to include responsiveness for mobile visitors.<br><br>
-            Case Study:<br> As this site was hosted on a website maker, the code itself was beyond salvageable due to having div upon div upon div. Starting from scratch was the optimal way to add responsiveness to her website. <br><br> As this was a surprise for her birthday, a lot of assets had to be collected rather than given, and used as proof of concepts. <br><br> At the time this was being developed, there were a few features used that I was unfamiliar with. As such, I would have placeholder areas as proof of concepts once again, to be reviewed by Sunbiscuit at a later date.</p>
-        </div>-->
+        ?>
         
         </div>
       </div>
@@ -152,12 +151,20 @@ $stmt = null;
       <h3 class="col-span-full">Related Projects</h3>
 
       <?php   
-        // $query2 = 'SELECT thumbnail, title, media.id AS medID, projects.id AS proID FROM projects, media WHERE projects.thumbnail = media.id AND projects.id = $relatedlist[0] OR projects.id = $relatedlist[1] OR projects.id = $relatedlist[2]';
+        // $query2 = 'SELECT thumbnail, title, media.id AS medID, projects.id AS proID FROM projects, media WHERE projects.thumbnail = media.id AND projects.id = :relatedlist0 OR projects.id = :relatedlist1 OR projects.id = :relatedlist2';
         // $stmt2 = $connection->prepare($query2);
+        // $firstrelated = $newrelated[0];
+        // $secondrelated = $newrelated[1];
+        // $thirdrelated = $newrelated[2];
+        // $stmt2->bindParam(':relatedlist0', $firstrelated, PDO::PARAM_INT);
+        // $stmt2->bindParam(':relatedlist1', $secondrelated, PDO::PARAM_INT);
+        // $stmt2->bindParam(':relatedlist2', $thirdrelated, PDO::PARAM_INT);
         // $stmt2->execute();
 
         // while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-        //   echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html?q='.$row2['proID'].'.php"><div><img src="images/project_images/'.$row['folder'].'/'.$row2['thumbnail'].'" alt= "'.$row2['title'].'"><p>'.$row2['title'].'</div></a>';
+        //   $uniquerelated = array_unique($row2);
+        //   print_r($uniquerelated);
+        //   echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html?q='.$uniquerelated['proID'].'.php"><div><img src="images/project_images/'.$uniquerelated['folder'].'/'.$uniquerelated['thumbnail'].'" alt= "'.$uniquerelated['title'].'"><p>'.$uniquerelated['title'].'</div></a>';
         // }
       
       
@@ -183,7 +190,15 @@ $stmt = null;
           <a href="#details-content" class="lb_close">X</a>
         </div>
 
-        <div id="primary-lb-image" class="col-span-full m-col-span-5"></div>
+        <div id="primary-lb-image" class="col-span-3 m-col-span-5"></div>
+
+        <div id="image-description" class="col-span-1 m-col-span-5">
+          <?php  
+            // for($i =0; $i < count($newdesc); $i++ ) {
+            //   echo "<p>".$newdesc[$i]."</p>";
+            // }
+          ?>
+        </div>
 
         <section class="col-span-full divider">
           <h2 class="hidden">Divider</h2>
