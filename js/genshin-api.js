@@ -4,14 +4,23 @@ export function genshinAPI() {
     const detailsTemplate = document.querySelector("#details-template")
     const baseURL = "https://gsi.fly.dev/"
     const ul = document.createElement("ul");
+    const div = document.createElement("div")
 
-    let paimon = `<img id="paimon" src="../Singer_D_Portfolio/images/genshin_images/paimon.gif">`
+    div.setAttribute("id", "paimon-box")
+
+    let paimon = `<img id="paimon" src="../images/genshin_images/paimon.gif">`
     
     function characterPopulation(){
+        characterBox.appendChild(div)
+        div.innerHTML = paimon
+
         fetch(`${baseURL}characters/search?model_type=Tall female`)
         .then(result => result.json())
         .then(function(result){
             const characters = result.results
+            const paimonBox = document.querySelector("#paimon-box")
+
+            paimonBox.remove();
     
             characters.forEach(character => {
                 const li = document.createElement("li")
@@ -65,14 +74,14 @@ export function genshinAPI() {
             detailsBox.innerHTML = ""
     
             characterName.textContent = shortcut.name
-            characterRarity.src = `../Singer_D_Portfolio/images/genshin_images/${shortcut.rarity}.webp`
+            characterRarity.src = `../images/genshin_images/${shortcut.rarity}.webp`
             characterRarity.alt = "Rarity of " + shortcut.name
             characterRarity.setAttribute("class", "rarity")
             characterTitle.textContent = shortcut.title[0]
             characterTitle.setAttribute("class", "title")
             characterVision.textContent = "Vision: " + shortcut.vision
             characterWeapon.textContent = "Weapon: " + shortcut.weapon
-            characterSplash.src = `../Singer_D_Portfolio/images/genshin_images/character-${characterID}.webp`
+            characterSplash.src = `../images/genshin_images/character-${characterID}.webp`
             characterSplash.alt = `Splash art of ` + shortcut.name
             characterSplash.setAttribute("class", "splash-art")
     

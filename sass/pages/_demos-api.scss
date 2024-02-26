@@ -7,6 +7,13 @@
     }
 }
 
+#paimon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
 #character-box, #details-box {
     margin-bottom: 20px;
     border: 1px solid c.$green;
