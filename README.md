@@ -1,4 +1,4 @@
-# Portfolio For Delilah Singer ![Icon](./images/readme_icons/game-fill.svg)
+# Portfolio For Delilah Singer <!--![Icon](./images/readme_icons/game-fill.svg)-->
 
 This is the porfolio for Delilah Singer, front-end coder, writer, and video editor.  
 
