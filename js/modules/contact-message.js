@@ -14,6 +14,9 @@ export function contactMessage() {
         runningChibi.src = "../images/pixel_run.gif"
         runningChibi.setAttribute("id", "running-chibi")
         messageConfirm.appendChild(runningChibi)
+
+        window.scrollTo({top: 2000, behavior: "smooth"})
+        //gsap.to(window, {duration: 1, scrollTo:{messageConfirm}})
         
 
         const formData =
@@ -41,7 +44,7 @@ export function contactMessage() {
                 const value = Object.values(obj);
                 const errorRedirect = document.createElement("p")
 
-                gsap.to(window, {duration: 0.25, scrollTo:{y:0}})
+                window.scrollTo({top: 0, behavior: "smooth"})
 
                 messageConfirm.innerHTML = ""
                 errorRedirect.textContent = "Sorry, something didn't go as planned. Please check the message at the top!"
@@ -77,7 +80,9 @@ export function contactMessage() {
 
             feedback.appendChild(errorMessage)
 
-            gsap.to(window, {duration: 1, scrollTo:{y:0}})
+            //gsap.to(window, {duration: 1, scrollTo:{y:0}})
+
+            window.scrollTo({top: 0, behavior: "smooth"})
 
             messageConfirm.innerHTML = ""
         })
