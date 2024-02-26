@@ -1,20 +1,20 @@
 console.log("Greetings and bienvenue!");
 
-import { hamburger } from "./hamburger.js"
-import { index } from "./index.js"
-import { genshinAPI } from "./genshin-api.js";
-import { about } from "./about.js";
-import { contact } from "./contact.js";
-import { fullprojects } from "./full-projects.js";
-import { justLightning } from "./just-lightning.js";
-import { portfolio } from "./portfolio.js";
-import { projectDetails } from "./project-details.js";
-import { resume } from "./resume.js";
-import { slider } from "./slider.js";
-import { trivia } from "./trivia.js";
-import { video } from "./video.js";
-import { WTP } from "./wtp.js";
-import { contactMessage } from "./contact-message.js";
+import { hamburger } from "./modules/hamburger.js"
+import { index } from "./modules/index.js"
+import { genshinAPI } from "./modules/genshin-api.js";
+import { about } from "./modules/about.js";
+import { contact } from "./modules/contact.js";
+import { fullprojects } from "./modules/full-projects.js";
+import { justLightning } from "./modules/just-lightning.js";
+import { portfolio } from "./modules/portfolio.js";
+import { projectDetails } from "./modules/project-details.js";
+import { resume } from "./modules/resume.js";
+import { slider } from "./modules/slider.js";
+import { trivia } from "./modules/trivia.js";
+import { video } from "./modules/video.js";
+import { WTP } from "./modules/wtp.js";
+import { contactMessage } from "./modules/contact-message.js";
 
 if (document.body.dataset.page !== 'index') {
     hamburger()

@@ -1,4 +1,4 @@
-# Portfolio For Delilah Singer
+# Portfolio For Delilah Singer [<i class="ri-game-fill"></i>]  
 
 This is the porfolio for Delilah Singer, front-end coder, writer, and video editor.  
 

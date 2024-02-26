@@ -1,9 +1,9 @@
 export function contactMessage() {
+    gsap.registerPlugin(ScrollToPlugin);
+
     const contactForm = document.querySelector("#contact-d")
     const feedback = document.querySelector("#feedback-area")
     const messageConfirm = document.querySelector("#confirm-send")
-
-    let runningChibi = `<img id="running-chibi" src="../images/pixel_run.gif"`
 
     function contactFeedback(event) {
         event.preventDefault();
@@ -12,6 +12,7 @@ export function contactMessage() {
         let runningChibi = document.createElement("img");
 
         runningChibi.src = "../images/pixel_run.gif"
+        runningChibi.setAttribute("id", "running-chibi")
         messageConfirm.appendChild(runningChibi)
         
 
@@ -40,18 +41,26 @@ export function contactMessage() {
                 const value = Object.values(obj);
                 const errorRedirect = document.createElement("p")
 
+                gsap.to(window, {duration: 0.25, scrollTo:{y:0}})
+
                 messageConfirm.innerHTML = ""
-                errorRedirect.textContent = "Sorry, something didn't go as planned. Please scroll up and see what went wrong~"
+                errorRedirect.textContent = "Sorry, something didn't go as planned. Please check the message at the top!"
                 messageConfirm.appendChild(errorRedirect)
 
                 value.forEach(valueInfo => {
                     const p = document.createElement("p")
                     p.textContent = valueInfo
                     feedback.appendChild(p)
+
                 })
 
             } else {
+                const chibiRun = document.querySelector("#running-chibi");
                 messageConfirm.innerHTML = ""
+
+                //gsap.timeline({repeat:-1})
+                //gsap.to(chibiRun, 2, {x:500})
+                //Note to Professor De Luca: I'm saving this for my appointment with you~
 
                 contactForm.reset();
                 const sendConfirm = document.createElement("p")
@@ -67,6 +76,10 @@ export function contactMessage() {
             errorMessage.textContent = "Sorry, something went wrong!"
 
             feedback.appendChild(errorMessage)
+
+            gsap.to(window, {duration: 1, scrollTo:{y:0}})
+
+            messageConfirm.innerHTML = ""
         })
     }
     contactForm.addEventListener("submit", contactFeedback)

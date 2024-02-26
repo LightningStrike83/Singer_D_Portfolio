@@ -1,4 +1,5 @@
 export function about() {
+    gsap.registerPlugin(ScrollToPlugin);
     const professionalBio = document.querySelector("#professional-tab");
     const casualBio = document.querySelector("#personal-tab");
     const bioButton = document.querySelector("#about-bio-button p")
@@ -6,6 +7,7 @@ export function about() {
     const bioInfo = document.querySelector("#bio-info")
     const bioTemplate = document.querySelector("#bio-template")
     const infoImage = document.querySelector("#about-image-container")
+    const topButton = document.querySelector("#to-top")
 
     let bioMember = [
         {
@@ -163,9 +165,14 @@ export function about() {
         
     }
 
+    function smoothScrollTop() {
+        gsap.to(window, {duration: 1, scrollTo:{y:0}})
+    }
+
     professionalBio.addEventListener("click", proData)
     casualBio.addEventListener("click", casualData)
     bioButton.addEventListener("click", showBiography)
+    topButton.addEventListener('click', smoothScrollTop)
 }
 
 //AI Index:

@@ -78,9 +78,17 @@
 
 #mobile-bio {
     display: none;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    background-color: c.$darkgreen;
+    border-radius: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
     p {
+        padding-top: 10px;
         padding-left: 20px;
         padding-right: 20px;
+        padding-bottom: 10px;
     }
 }
 
@@ -106,6 +114,17 @@
     }
 
     #big-screen-bio {
+        border: 1px solid white;
+        background-color: c.$darkgreen;
+        border-radius: 20px;
         display: block;
+        margin-right: 10px;
+        p {
+            padding: 10px;
+        }
+    }
+
+    #mobile-bio {
+        display: none!important;
     }
 }
