@@ -1,5 +1,6 @@
+import {ScrollToPlugin} from "./greensock/ScrollToPlugin.js"
+
 export function fullprojects() {
-    gsap.registerPlugin(ScrollToPlugin);
     const topButton = document.querySelector("#to-top")
 
     function smoothScrollTop(e) {

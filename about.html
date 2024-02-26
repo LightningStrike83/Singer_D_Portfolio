@@ -14,6 +14,7 @@
     <link rel="mask-icon" href="images/favicom/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
     <script type="module" defer src="js/main.js"></script>
 </head>
 <body data-page="about">
@@ -87,7 +88,16 @@
 
       <div id="about-bio-button" class="col-span-2 m-col-span-5">
         <p>Show Bio &#8594;</p>
-        <div id="mobile-bio" class="about-bio"></div>
+      </div>
+
+      <div id="mobile-bio" class="about-bio col-span-full">
+      </div>
+    </section>
+
+    <section id="port-top" class="grid-con">
+      <h2 class="hidden">To Top Button</h2>
+      <div class="col-span-full">
+        <p id="to-top">&#x2191; To Top</p>
       </div>
     </section>
 
