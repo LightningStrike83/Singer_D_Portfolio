@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 03, 2024 at 03:58 AM
+-- Generation Time: Mar 03, 2024 at 04:06 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.2.0
 
@@ -160,7 +160,9 @@ CREATE TABLE IF NOT EXISTS media (
   project_id int UNSIGNED NOT NULL,
   image_description mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci,
+FOREIGN KEY (project_id) REFERENCES projects(id) 
+    ON DELETE CASCADE;
 
 --
 -- Dumping data for table media
@@ -336,33 +338,6 @@ INSERT INTO media (id, image_path, project_id, image_description) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table pages
---
-
-DROP TABLE IF EXISTS pages;
-CREATE TABLE IF NOT EXISTS pages (
-  id int UNSIGNED NOT NULL AUTO_INCREMENT,
-  page_name varchar(500) NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table pages
---
-
-INSERT INTO pages (id, page_name) VALUES
-(1, 'Home'),
-(2, 'Portfolio'),
-(3, 'Full Projects'),
-(4, 'Project Details'),
-(5, 'About'),
-(6, 'Resume'),
-(7, 'Demos'),
-(8, 'Contact');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table projects
 --
 
@@ -427,7 +402,9 @@ CREATE TABLE IF NOT EXISTS projects_software (
   project_id int UNSIGNED NOT NULL,
   software_id int UNSIGNED NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci,
+FOREIGN KEY (project_id) REFERENCES projects(id) 
+    ON DELETE CASCADE;
 
 --
 -- Dumping data for table projects_software
@@ -500,7 +477,9 @@ CREATE TABLE IF NOT EXISTS related (
   main_project_id int UNSIGNED NOT NULL,
   related_project_id int UNSIGNED NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci,
+FOREIGN KEY (project_id) REFERENCES projects(id) 
+    ON DELETE CASCADE;
 
 --
 -- Dumping data for table related
