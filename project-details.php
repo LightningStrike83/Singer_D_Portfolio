@@ -148,7 +148,7 @@ $stmt = null;
       <h3 class="col-span-full">Related Projects</h3>
 
       <?php   
-        // $query2 = 'SELECT thumbnail, title, media.id AS medID, projects.id AS proID FROM projects, media WHERE projects.thumbnail = media.id AND projects.id = :relatedlist0 OR projects.id = :relatedlist1 OR projects.id = :relatedlist2';
+        // $query2 = 'SELECT thumbnail, title, media.id AS medID, projects.id AS proID FROM projects, media WHERE projects.id = :relatedlist0 OR projects.id = :relatedlist1 OR projects.id = :relatedlist2';
         // $stmt2 = $connection->prepare($query2);
         // $firstrelated = $newrelated[0];
         // $secondrelated = $newrelated[1];
