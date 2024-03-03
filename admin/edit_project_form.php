@@ -36,7 +36,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <label for="category_id">Category ID</label><br>
         <input name="category_id" type="number" min="1" max="4" value="<?php echo $row['category_id']; ?>" required><br><br>
         <label for="date_finished">Date Finished</label><br>
-        <input name="date_finished" type="text" value="<?php echo $row['date_finished']; ?>" required><br><br>
+        <input name="date_finished" type="text" value="<?php echo $row['date_finished']; ?>"><br><br>
         <label for="description">Description</label><br>
         <textarea name="description" required><?php echo $row['description']; ?></textarea><br><br>
         <label for="client_id">Client ID</label><br>
@@ -46,7 +46,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <label for="case_study">Case Study</label><br>
         <textarea name="case_study" required><?php echo $row['case_study']; ?></textarea><br><br>
         <label for="thumbnail">Thumbnail</label><br>
-        <input name="thumbnail" type="number" value="<?php echo $row['thumbnail']; ?>" required><br><br>
+        <input name="thumbnail" value="<?php echo $row['portfolio_image']; ?>" required><br><br>
         <input name="submit" type="submit" value="Edit">
     </form>
 </section>

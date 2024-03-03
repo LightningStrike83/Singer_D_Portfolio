@@ -11,6 +11,8 @@ export function contactMessage() {
         const thisform = this
         let runningChibi = document.createElement("img");
 
+        console.log(url)
+
         runningChibi.src = "../images/pixel_run.gif"
         runningChibi.setAttribute("id", "running-chibi")
         messageConfirm.appendChild(runningChibi)
