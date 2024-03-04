@@ -13,7 +13,7 @@ require_once('../connect.php');
 $stmt = $connection->prepare('SELECT projects.id, title FROM projects ORDER BY id ASC');
 $stmt->execute();
 
-//Note to Professor Haaf: I do realie I can do all this one statement, but I found a gigantic bug and it doesn't look like an easy fix. The bug is currently in project_list_experimental.
+//Note to Professor Haaf: I do realize I can do all this one statement, but I found a gigantic bug and it doesn't look like an easy fix. The bug is currently in project_list_experimental.
 //The bug is that when I combine everything into one statement, and want to retrieve information from it, it'll duplicate the results. Thus, for result purposes, I'm preparing new statements and working with those since those work. I promise to explore this bug later. I theorize that when we have our next meeting, we'll figure out a way to squish this bug because I think it's related to another bug I'm having.
 
 $stmt2 = $connection->prepare('SELECT * FROM category');
