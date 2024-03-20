@@ -4,6 +4,7 @@ export function index() {
     const chibiQuoteText = document.querySelector("#chibi-quote")
     let tl = gsap.timeline();
     const closeButton = document.querySelector(".lb_close")
+    const currentTheme = localStorage.getItem("visitor")
 
     let chibiQuotes = [
         {
@@ -54,13 +55,33 @@ export function index() {
         lightbox.style.display = "none"
     }
 
-    tl.from("#greeting", 1.5, {autoAlpha: 0})
-    tl.from("#info-area", 1, {autoAlpha: 0})
-    tl.from("#profile-text h3, #mobile-name", 1.5, {autoAlpha: 0, scale: 0})
-    tl.from("header, footer, #chibi-home, #profile-image, #demo-reel, #mobile-headshot", 1, {autoAlpha: 0})
-    tl.staggerFrom(".role-text, .role-divider, .link-button", 1, {autoAlpha: 0, scale: 0}, 0.3, 3)
+    if (currentTheme == "visitor") {
+        document.body.classList.add("visited")
+    }
+
+
+    if (document.body.classList.contains("visited")) {
+    } else {
+        tl.from("#greeting", 1.5, {autoAlpha: 0})
+        tl.from("#info-area", 1, {autoAlpha: 0})
+        tl.from("#profile-text h3, #mobile-name", 1.5, {autoAlpha: 0, scale: 0})
+        tl.from("header, footer, #chibi-home, #profile-image, #demo-reel, #mobile-headshot", 1, {autoAlpha: 0})
+        tl.staggerFrom(".role-text, .role-divider, .link-button", 1, {autoAlpha: 0, scale: 0}, 0.3, 3)
+        document.body.classList.add("visited")
+    }
+
+    let theme = "Not-Visited"
+
+    if (document.body.classList.contains("visited")) {
+        theme = "visited"
+    }
+
 
     demoReel.addEventListener('click', openDemoReel)
     roleQuote.forEach(role => role.addEventListener('click', chibiQuote))
     closeButton.addEventListener('click', closeLightbox)
+    localStorage.setItem("visitor", theme)
 }
+
+//Lines for localstorage:
+//7, 58-77, 83
