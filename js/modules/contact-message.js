@@ -63,9 +63,8 @@ export function contactMessage() {
                 const chibiRun = document.querySelector("#running-chibi");
                 messageConfirm.innerHTML = ""
 
-                //gsap.timeline({repeat:-1})
-                //gsap.to(chibiRun, 2, {x:500})
-                //Note to Professor De Luca: I'm saving this for my appointment with you~
+                gsap.timeline({repeat:-1})
+                gsap.to(chibiRun, 2, {x:500})
 
                 contactForm.reset();
                 const sendConfirm = document.createElement("p")

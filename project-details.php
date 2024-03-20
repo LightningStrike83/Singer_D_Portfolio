@@ -122,7 +122,7 @@ $stmt = null;
         
         for($i =0; $i < count($softwarelist); $i++ ) {
 
-          if (count($softwarelist) === $i) {
+          if ($i === count($softwarelist)-1) {
           echo  $softwarelist[$i];
           } else {
             echo  $softwarelist[$i].', ';
@@ -148,21 +148,20 @@ $stmt = null;
       <h3 class="col-span-full">Related Projects</h3>
 
       <?php   
-        // $query2 = 'SELECT thumbnail, title, media.id AS medID, projects.id AS proID FROM projects, media WHERE projects.id = :relatedlist0 OR projects.id = :relatedlist1 OR projects.id = :relatedlist2';
-        // $stmt2 = $connection->prepare($query2);
-        // $firstrelated = $newrelated[0];
-        // $secondrelated = $newrelated[1];
-        // $thirdrelated = $newrelated[2];
-        // $stmt2->bindParam(':relatedlist0', $firstrelated, PDO::PARAM_INT);
-        // $stmt2->bindParam(':relatedlist1', $secondrelated, PDO::PARAM_INT);
-        // $stmt2->bindParam(':relatedlist2', $thirdrelated, PDO::PARAM_INT);
-        // $stmt2->execute();
+        $query2 = 'SELECT thumbnail, title, projects.id AS proID, folder FROM projects, category WHERE (projects.id = :relatedlist0 OR projects.id = :relatedlist1 OR projects.id = :relatedlist2) AND projects.category_id = category.id';
 
-        // while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-        //   $uniquerelated = array_unique($row2);
-        //   print_r($uniquerelated);
-        //   echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.html?q='.$uniquerelated['proID'].'.php"><div><img src="images/project_images/'.$uniquerelated['folder'].'/'.$uniquerelated['thumbnail'].'" alt= "'.$uniquerelated['title'].'"><p>'.$uniquerelated['title'].'</div></a>';
-        // }
+        $stmt2 = $connection->prepare($query2);
+        $firstrelated = $newrelated[0];
+        $secondrelated = $newrelated[1];
+        $thirdrelated = $newrelated[2];
+        $stmt2->bindParam(':relatedlist0', $firstrelated, PDO::PARAM_INT);
+        $stmt2->bindParam(':relatedlist1', $secondrelated, PDO::PARAM_INT);
+        $stmt2->bindParam(':relatedlist2', $thirdrelated, PDO::PARAM_INT);
+        $stmt2->execute();
+
+        while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+          echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.php?id='.$row2['proID'].'"><div><img src="images/project_images/'.$row2['folder'].'/'.$row2['thumbnail'].'" alt= "'.$row2['title'].'"><p>'.$row2['title'].'</div></a>';
+        }
       
       
       ?>
