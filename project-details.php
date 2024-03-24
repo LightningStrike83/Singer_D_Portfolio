@@ -101,10 +101,6 @@ $stmt = null;
             <?php
             $v = 1;
             for($i =4; $i < count($new); $i++) {
-                
-            //id="'.$new[$v].'"
-            //I want to create ids that increment by 1 for each type things echo out. So with this, it should be 1, 2, 3
-
             echo '<img class="side-images" id="'.$v.'" data-member="'.$projectId.'"data-folder="'.$row['folder'].'" src ="images/project_images/'.$row['folder'].'/'.$new[$i].'" alt="Gallery Image">';
             $v++;
             }
@@ -147,24 +143,26 @@ $stmt = null;
     <section id="related-projects" class="grid-con">
       <h3 class="col-span-full">Related Projects</h3>
 
-      <?php   
-        $query2 = 'SELECT thumbnail, title, projects.id AS proID, folder FROM projects, category WHERE (projects.id = :relatedlist0 OR projects.id = :relatedlist1 OR projects.id = :relatedlist2) AND projects.category_id = category.id';
+      <div id="related-info" class="col-span-full">
+        <?php   
+          $query2 = 'SELECT thumbnail, title, projects.id AS proID, folder FROM projects, category WHERE (projects.id = :relatedlist0 OR projects.id = :relatedlist1 OR projects.id = :relatedlist2) AND projects.category_id = category.id';
 
-        $stmt2 = $connection->prepare($query2);
-        $firstrelated = $newrelated[0];
-        $secondrelated = $newrelated[1];
-        $thirdrelated = $newrelated[2];
-        $stmt2->bindParam(':relatedlist0', $firstrelated, PDO::PARAM_INT);
-        $stmt2->bindParam(':relatedlist1', $secondrelated, PDO::PARAM_INT);
-        $stmt2->bindParam(':relatedlist2', $thirdrelated, PDO::PARAM_INT);
-        $stmt2->execute();
+          $stmt2 = $connection->prepare($query2);
+          $firstrelated = $newrelated[0];
+          $secondrelated = $newrelated[1];
+          $thirdrelated = $newrelated[2];
+          $stmt2->bindParam(':relatedlist0', $firstrelated, PDO::PARAM_INT);
+          $stmt2->bindParam(':relatedlist1', $secondrelated, PDO::PARAM_INT);
+          $stmt2->bindParam(':relatedlist2', $thirdrelated, PDO::PARAM_INT);
+          $stmt2->execute();
 
-        while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-          echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.php?id='.$row2['proID'].'"><div><img src="images/project_images/'.$row2['folder'].'/'.$row2['thumbnail'].'" alt= "'.$row2['title'].'"><p>'.$row2['title'].'</div></a>';
-        }
-      
-      
-      ?>
+          while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+            echo '<a class="related-project col-span-2 m-col-start-2 m-col-end-4" href="project-details.php?id='.$row2['proID'].'"><div><img src="images/project_images/'.$row2['folder'].'/'.$row2['thumbnail'].'" alt= "'.$row2['title'].'"><p>'.$row2['title'].'</div></a>';
+          }
+        
+        
+        ?>
+      </div>
 
     </section>
 
@@ -186,13 +184,20 @@ $stmt = null;
           <a href="#details-content" class="lb_close">X</a>
         </div>
 
-        <div id="primary-lb-image" class="col-span-3 m-col-span-5"></div>
+        <div id="primary-lb-image" class="col-span-2 m-col-span-5"></div>
 
-        <div id="image-description" class="col-span-1 m-col-span-5">
+        <div id="image-description" class="col-span-2 m-col-span-5">
           <?php  
-            // for($i =0; $i < count($newdesc); $i++ ) {
-            //   echo "<p>".$newdesc[$i]."</p>";
-            // }
+            $query3 = 'SELECT image_description FROM media WHERE media.project_id = :projectId';
+
+            $stmt3 = $connection->prepare($query3);
+            $stmt3->bindParam(':projectId', $projectId, PDO::PARAM_INT);
+            $stmt3->execute();
+            $d = 1;
+            while ($row3 = $stmt3->fetch(PDO::FETCH_ASSOC)) {
+              echo '<p class="image-desc" id="desc-'.$d.'">'.$row3['image_description'].'</p>';
+              $d++;
+            }
           ?>
         </div>
 

@@ -44,6 +44,7 @@
 
 #about-image-container {
     display: flex;
+    height: 55%;
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -51,7 +52,7 @@
     margin-right: 20px;
     background-image: url(../images/professional.jpg);
     background-size: cover;
-    background-position: 30%;
+    background-position: top;
 }
 
 #about-bio-button {
