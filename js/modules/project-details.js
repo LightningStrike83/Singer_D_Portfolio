@@ -38,6 +38,12 @@ export function projectDetails() {
         const thumbnailZone = document.querySelector("#related-thumbs")
         const thumbTemplate2 = document.querySelector("#gallery-thumbs-template")
         const thumbClone2 = thumbTemplate2.content.cloneNode(true)
+        const imageDescription = document.querySelectorAll(".image-desc")
+        let descriptionCount = Number(this.id) + 1;
+        const thisDescription = document.querySelector(`#desc-${descriptionCount}`)
+
+        imageDescription.forEach(desc => desc.style.display = "none")
+        thisDescription.style.display = "block"
 
         imageZone.innerHTML = ""
         thumbnailZone.innerHTML = ""

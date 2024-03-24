@@ -118,6 +118,10 @@
     max-height: 400px;
 }
 
+#image-description p {
+    display: none;
+}
+
 @media screen and (min-width: 768px) {
     #details-text {
         p {
@@ -140,6 +144,14 @@
                 max-width: 100%;
             }
         }
+    }
+}
+
+#related-info {
+    display: flex;
+    justify-content: space-between;
+    a {
+        width: 25%;
     }
 }
 
