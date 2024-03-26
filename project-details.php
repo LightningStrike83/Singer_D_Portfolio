@@ -89,10 +89,9 @@ $stmt = null;
 
     <section class="grid-con" id="details-content">
       <h3 class="col-span-full">Overview</h3>
-      <div id="details-images" class="col-span-full">
+      <div id="details-images" class="col-span-2 m-col-span-5">
         <div id="info-con">
           <div id="image-con">
-
           <?php 
           echo '<img id="main-image" src="images/project_images/'.$row['folder'].'/'.$new[1].'" alt="Image of '.$row['title'].'">'
           ?>
@@ -110,7 +109,10 @@ $stmt = null;
             </div></template>
 
           </div>
+        </div>
+      </div>
 
+      <div id="desc-info" class="col-span-2 m-col-span-5">
         <?php 
         
         echo '<div id="text-con"><p>Project Name:<br>'.$row['title'].'<br><br>Software Used:<br> ';
@@ -127,12 +129,24 @@ $stmt = null;
         
         
         
-        echo '<br><br>Client:<br> '.$row['client_name'].'<br><br>Link:<br> <a href="'.$row['link'].'">'.$row['title'].'</a><br><br>Description:<br>'.$row['description'].'<br><br>Case Study:<br>'.$row['case_study'].'</p></div>';
-        
+        echo '<br><br>Client:<br> '.$row['client_name'].'<br><br>Github Link:<br> <a href="'.$row['link'].'">'.$row['title'].'</a><br><br>Description:<br>'.$row['description'].'</p></div>';
         ?>
-        
-        </div>
       </div>
+    </section>
+
+    <section class="grid-con divider">
+      <h2 class="hidden">Divider</h2>
+      <div class="col-span-full"></div>
+    </section>
+
+    <section id="case-study" class="grid-con">
+      <div id="case-study-deets" class="col-span-full">
+          <?php
+
+          echo '<h3>Case Study</h3><br><p>'.$row['case_study'].'</p>';
+
+          ?>
+        </div>
     </section>
 
     <section class="grid-con divider">
