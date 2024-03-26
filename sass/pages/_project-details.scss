@@ -29,7 +29,6 @@
 #image-con {
     display: flex;
     flex-direction: column-reverse;
-    width: 50%!important;
     float: left;
 }
 
@@ -122,6 +121,13 @@
     display: none;
 }
 
+#case-study-deets {
+    margin-bottom: 20px;
+    h3 {
+        text-align: center;
+    }
+}
+
 @media screen and (min-width: 768px) {
     #details-text {
         p {
@@ -143,6 +149,13 @@
             img {
                 max-width: 100%;
             }
+        }
+    }
+
+    #case-study-deets {
+        margin-bottom: 30px;
+        h3 {
+            text-align: center;
         }
     }
 }

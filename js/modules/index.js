@@ -69,7 +69,6 @@ export function index() {
     }
 
     sessionStorage.setItem("animation", "played");
-    demoReel.addEventListener('click', openDemoReel)
     roleQuote.forEach(role => role.addEventListener('click', chibiQuote))
     closeButton.addEventListener('click', closeLightbox)
 }

@@ -99,7 +99,7 @@ if (empty($errors)) {
     $stmt -> execute();
     
     $to = 'd.singer042@gmail.com';
-    $subject = 'Message From Portfolio';
+    $sub = 'Message From Portfolio';
 
     $message = "You have received a new message from your portfolio site! Congrats~\n\n";
     $message .= "Name: ".$pname."\n";
@@ -107,7 +107,7 @@ if (empty($errors)) {
     $message .= "Subject: ".$subject."\n";
     $message .= "Message: ".$comments."\n\n";
 
-    mail($to, $subject, $message);
+    mail($to, $sub, $message);
     echo json_encode(array("message" => "Sent! I'll get back to you as soon as possible!"));
 
 } else {
