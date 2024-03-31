@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as c;
+
 .header-logo:hover {
     .cls-1-h {
         fill: white;
@@ -5,9 +7,14 @@
     }
 }
 
-.github:hover {
-    fill: white;
+.github path {
     transition: all 0.5s ease-in-out;
+}
+
+.github:hover {
+    path {
+        fill: white;
+    }
 }
 
 .linkedin:hover {
@@ -17,7 +24,7 @@
     }
 
     .in {
-        fill: #007EBB;
+        fill: c.$green;
         transition: all 0.5s ease-in-out;
     }
 }

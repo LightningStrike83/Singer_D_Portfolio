@@ -3,8 +3,9 @@
 p, a, li, #submit-contact {
     font-family: 'Rockwell';
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5em;
+    letter-spacing: 0.5px;
 }
 
 a {
@@ -35,7 +36,7 @@ li a {
         font-weight: 600;
         text-decoration: none;
         color: black;
-        font-size: 18px;
+        font-size: 16px;
         &:hover {
             text-decoration: underline;
             color: white;
@@ -60,7 +61,7 @@ li a {
 
 @media screen and (min-width: 768px) {
     p, a, li, #submit-contact {
-        font-size: 24px;
+        font-size: 18px;
     }
 
     h3 {
@@ -69,7 +70,7 @@ li a {
 
     li a {
         &:not(.external-link) {
-            font-size: 24px;
+            font-size: 18px;
         }
     }
 
@@ -77,16 +78,16 @@ li a {
 
 @media screen and (min-width: 1200px) {
     p, a, li, #submit-contact {
-        font-size: 28px;
+        font-size: 22px;
     }
 
     h3 {
-        font-size: 48px;
+        font-size: 40px;
     }
 
     li a {
         &:not(.external-link) {
-            font-size: 30px;
+            font-size: 24px;
         }
     }
 }
