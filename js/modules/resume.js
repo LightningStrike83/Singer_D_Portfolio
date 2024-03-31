@@ -16,14 +16,9 @@ export function resume() {
         },
 
         {
-            quote: "",
-            source: "",
+            quote: "I love working with Delilah because I always know with certainty the job will get done and it will get done well. She puts forth full effort on every project, and supports everyone she's working with. She's a true team player and a reliable, hard worker. Her dedication to success and her caring nature are truly commendable.",
+            source: "-Sophia Westrop",
         },
-
-        {
-            quote: "",
-            source: "",
-        }
     ]
 
     function openQualifications() {

@@ -37,6 +37,10 @@
     }
 }
 
+.role-text:target {
+    color: c.$green;
+}
+
 #chibi-quote {
     display: none;
     background-color: c.$green;
@@ -116,9 +120,31 @@ video {
     margin-top: 10px;
 }
 
+@media screen and (min-width: 200px) {
+    .role-text {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 320px) {
+    .role-text {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .role-text {
+        font-size: 16px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     #mobile-headshot {
         display: none!important;
+    }
+
+    .role-text {
+        font-size: 18px;
     }
 
     #chibi-home {
@@ -196,6 +222,10 @@ video {
 }
 
 @media screen and (min-width: 1200px) {
+    .role-text {
+        font-size: 22px;
+    }
+
     #info-area {
         justify-content: center;
         #profile-image {
@@ -204,7 +234,6 @@ video {
         div {
             h3 {
                 padding-top: 30px;
-                margin-bottom: 50px;
             }
         }
 
