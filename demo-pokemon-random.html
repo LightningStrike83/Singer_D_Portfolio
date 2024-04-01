@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Selection- Delilah Singer</title>
+    <title>Pokemon Rnadomizer- Delilah Singer</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/main.css">
@@ -16,8 +16,8 @@
     <meta name="theme-color" content="#ffffff">
     <script type="module" src="js/main.js"></script>
 </head>
-<body>
-    <h1 class="hidden">Demo Selection</h1>
+<body data-page="rp">
+    <h1 class="hidden">Pokemon Randomizer</h1>
     <header class="full-width-grid-con">
         <nav class="grid-con top-nav">
             <a class="col-span-1 m-col-span-2 l-col-span-1 header-logo" href="index.html"><svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105.47 66.24">
@@ -57,67 +57,24 @@
         </nav>
     </header>
 
-    <section id="demo-intro" class="grid-con">
-        <h3 class="col-span-full">Interactive Demos</h3>
-        <p class="col-span-full">You ever hear of the phrase "show, don't tell"? Well, this is where I show off just a portion of what I can do! <br> Select an activity below to interact and play around with it, coded by yours truly too.</p> 
-      </section>
-
-      <section id="demo-selection" class="grid-con">
-        <h2 class="hidden">Demo Selection</h2>
-        
-        <div id="demo-display" class="col-span-full">
-          <div class="demo-box" id="slider-demo">
-            <a href="demo-slider.html">
-              <img class="demo-thumbnail" src="images/superhero-thumbnail.svg" alt="Thumbnail for Slider Demo">
-              <p>Superhero Interactive Slider</p>
-            </a>  
-          </div>
-          
-          <!--<div class="demo-box" id="scrolling-demo">
-            <a href="demo-scrolling.html">
-              <img class="demo-thumbnail" src="images/scroller-thumbnail.svg" alt="Thumbnail for Scrolling Demo">
-              <p>Fall Out Boy Scrolling Animatic</p>
-            </a>
-          </div>-->
-
-          <div class="demo-box" id="trivia-demo">
-            <a href="demo-trivia.html">
-              <img class="demo-thumbnail" src="images/trivia-thumbnail.svg" alt="Thumbnail for Trivia Demo">
-              <p>Delilah Portfolio Trivia Game</p>
-            </a>
-          </div>
-
-          <div class="demo-box" id="wtp-demo">
-            <a href="demo-wtp.html">
-              <img class="demo-thumbnail" src="images/wtp-thumbnail.svg" alt="Thumbnail for Trivia Demo">
-              <p>Who's That Pokemon Demo</p>
-            </a>
-          </div>
-
-          <div class="demo-box" id="horror-demo">
-            <a href="just-lightning.html">
-              <img class="demo-thumbnail" src="images/horror-thumbnail.svg" alt="Change The Picture Demo">
-              <p>Change The Picture Demo</p>
-            </a>
-          </div>
-
-          <div class="demo-box" id="api-demo">
-            <a href="demo-api.html">
-              <img class="demo-thumbnail" src="images/api-thumbnail.svg" alt="Thumbnail for API Demo">
-              <p>API Demo (Genshin Impact)</p>
-            </a>
-          </div>
-
-          <div class="demo-box" id="random-demo">
-            <a href="demo-pokemon-random.html">
-              <img class="demo-thumbnail" src="images/rp.svg" alt="Thumbnail for OOP and Randomizing Demo">
-              <p>Randomizing Objects Demo (OOP)</p>
-            </a>
-          </div>
+    <section id="random-instruction" class="grid-con">
+        <h2 class="hidden">Pokemon Randomizer</h2>
+        <div class="col-span-full">
+            <h3>Pokemon Randomizer</h3>
+            <p class="col-span-full">Click the button to have one of my favourite Pokemon appear at random!</p>
         </div>
-      </section>
+    </section>
 
-      <footer class="full-width-grid-con">
+    <section id="pokemon-area-con" class="grid-con">
+        <div id="pokemon-area" class="col-span-full">
+            <img id="pokemon-image" src="images/substitute.png" alt="A substitute plushie">
+        </div>
+        <div id="select-button" class="col-span-full">
+            <a href="#random-instruction">Get A Pokemon</a>
+        </div>
+    </section>
+
+    <footer class="full-width-grid-con">
         <p class="copyright">© Delilah Singer</p>
     </footer>
 </body>
