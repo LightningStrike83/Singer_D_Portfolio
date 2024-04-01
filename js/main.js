@@ -15,6 +15,7 @@ import { trivia } from "./modules/trivia.js";
 import { video } from "./modules/video.js";
 import { WTP } from "./modules/wtp.js";
 import { contactMessage } from "./modules/contact-message.js";
+import { randomPokemon } from "./modules/random-pokemon.js";
 
 if (document.body.dataset.page !== 'index') {
     hamburger()
@@ -46,4 +47,6 @@ if (document.body.dataset.page === 'index') {
     trivia();
 } else if (document.body.dataset.page === 'wtp') {
     WTP();
+} else if (document.body.dataset.page === 'rp') {
+    randomPokemon()
 }
