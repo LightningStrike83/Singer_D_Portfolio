@@ -24,7 +24,7 @@ export function justLightning() {
     createButton()
 
     function triggerHorror() {
-        const mainImage = document.querySelector("#main-image img")
+        const mainImage = document.querySelector("#main-image-jl img")
         const buttonDiv = document.createElement('div')
         const buttonText = document.createElement('p')
 

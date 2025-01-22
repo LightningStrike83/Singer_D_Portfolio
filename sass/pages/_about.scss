@@ -24,18 +24,23 @@
 }
 
 #professional-tab {
-    background-color: c.$green;
+    background-color: rgb(42, 42, 42);
+    border: 3px solid c.$green;
+    border-bottom: none;
 }
 
 #personal-tab {
-    background-color: c.$darkgreen;
+    background-color: rgb(21, 21, 21);
+    border: 3px solid c.$green;
+    border-bottom: none;
 }
 
 #info-box {
     padding: 0;
     margin-bottom: 50px;
-    background-color: c.$green;
+    background-color: rgb(42, 42, 42);
     height: 100%!important;
+    border: 3px solid c.$green;
     h3 {
         margin-top: 30px;
         margin-bottom: 20px;

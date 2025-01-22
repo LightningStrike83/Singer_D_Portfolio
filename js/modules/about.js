@@ -109,8 +109,8 @@ export function about() {
         const personalTab = document.querySelector("#personal-tab")
         const bioChange = document.querySelectorAll(".about-bio p")
 
-        professionalTab.style.backgroundColor = "#76C723"
-        personalTab.style.backgroundColor = "#5EA019"
+        professionalTab.style.backgroundColor = "rgb(42, 42, 42)"
+        personalTab.style.backgroundColor = "rgb(21, 21, 21)"
         
         infoImage.style.backgroundImage = "url(../images/professional.jpg)"
 
@@ -134,8 +134,8 @@ export function about() {
 
         infoImage.style.backgroundImage = "url(../images/personal.jpg)"
 
-        professionalTab.style.backgroundColor = "#5EA019"
-        personalTab.style.backgroundColor = "#76C723"
+        professionalTab.style.backgroundColor = "rgb(21, 21, 21)"
+        personalTab.style.backgroundColor = "rgb(42, 42, 42)"
 
         personalInformation.forEach((info, index) => {
             const bioHeading = document.querySelectorAll(".bio-heading");

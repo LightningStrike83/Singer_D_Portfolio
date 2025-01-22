@@ -52,12 +52,12 @@
 
 #left-arrow {
     margin-left: 1%;
-    text-shadow: 1px 0 white;
+    text-shadow: 1px 0 rgb(235, 235, 235);
 }
 
 #right-arrow {
     margin-right: 1%;
-    text-shadow: -1px 0 white;
+    text-shadow: -1px 0 rgb(235, 235, 235);
 }
 
 #port-intro {
@@ -88,7 +88,7 @@
                 color: c.$green;
             }
             &:visited {
-                color: white;
+                color: rgb(235, 235, 235);
                 &:hover {
                     color: c.$green;
                 }

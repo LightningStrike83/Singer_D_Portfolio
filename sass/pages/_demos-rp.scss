@@ -15,6 +15,7 @@
     margin-bottom: 20px;
     border: 3px solid c.$green;
     padding: 20px;
+    background-color: rgb(42, 42, 42);
     p {
         padding-left: 20px;
         padding-right: 20px;
@@ -41,7 +42,7 @@
         text-align: center;
         cursor: pointer;
         &:hover {
-            background-color: white;
+            background-color: rgb(235, 235, 235);
             color: c.$green;
         }
     }
@@ -55,7 +56,7 @@
     cursor: pointer;
     transition: all ease-in-out 0.5s;
     &:hover {
-        background-color: white;
+        background-color: rgb(235, 235, 235);
         color: c.$green;
     }
 }

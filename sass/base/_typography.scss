@@ -2,7 +2,7 @@
 
 p, a, li, #submit-contact {
     font-family: 'Rockwell';
-    color: white;
+    color: rgb(235, 235, 235);
     font-size: 16px;
     line-height: 1.5em;
     letter-spacing: 0.5px;
@@ -11,14 +11,14 @@ p, a, li, #submit-contact {
 a {
     text-decoration: none;
     &:visited {
-        color: white;
+        color: rgb(235, 235, 235);
         &:hover {
-            color: white;
+            color: rgb(235, 235, 235);
             transition: all 0.5s ease-in-out;
         }
     }
     &:hover {
-        color: white;
+        color: rgb(235, 235, 235);
         transition: all 0.5s ease-in-out;
     }
 }
@@ -26,7 +26,7 @@ a {
 h3 {
     font-family: 'Eras ITC';
     font-weight: 600;
-    color: white;
+    color: rgb(235, 235, 235);
     font-size: 30px;
 }
 
@@ -39,7 +39,7 @@ li a {
         font-size: 16px;
         &:hover {
             text-decoration: underline;
-            color: white;
+            color: rgb(235, 235, 235);
             transition: all 0.5s ease-in-out
         }
         &:visited {
@@ -59,6 +59,13 @@ li a {
     color: c.$darkgreen!important;
 }
 
+.mobile-X {
+    color: black;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 24px;
+}
+
 @media screen and (min-width: 768px) {
     p, a, li, #submit-contact {
         font-size: 18px;
@@ -74,6 +81,9 @@ li a {
         }
     }
 
+    .mobile-X {
+        font-size: 28px;
+    }
 }
 
 @media screen and (min-width: 1200px) {

@@ -16,16 +16,16 @@
         p {
             margin-bottom: 30px;
             &:not(.role-text) {
-                border-right: 1px solid white;
+                border-right: 1px solid rgb(235, 235, 235);
             }
         }
     }
 }
 
 .link-button {
-    color: white;
+    color: rgb(235, 235, 235);
     &:visited {
-        color: white;
+        color: rgb(235, 235, 235);
     }
 }
 
@@ -43,7 +43,8 @@
 
 #chibi-quote {
     display: none;
-    background-color: c.$green;
+    background-color: rgb(42, 42, 42);
+    border: 2px solid c.$darkgreen;
     border-radius: 10px;
     padding: 22px 17px;
     margin-bottom: 30px;
@@ -64,15 +65,15 @@
         flex-direction: column;
         flex-wrap: wrap;
         padding: 25px;
-        background-color: c.$green;
-        border: 1px solid c.$green;
+        background-color: rgb(42, 42, 42);
+        border: 2px solid c.$green;
         border-radius: 43px;
         text-align: center;
         margin-bottom: 20px;
         cursor: pointer;
         &:hover {
-            background-color: white;
-            color: c.$green;
+            background-color: c.$darkgreen;
+            color: rgb(235, 235, 235);
         }
     }
 }
@@ -85,7 +86,7 @@
     text-align: center;
     margin-bottom: 50px;
     p, a {
-        color: white;
+        color: rgb(235, 235, 235);
         cursor: pointer;
         text-decoration: underline;
         &:hover {
@@ -93,7 +94,7 @@
             transition: all 0.5s ease-in-out;
         }
         &:visited {
-            color: white;
+            color: rgb(235, 235, 235);
             &:hover {
                 color: c.$green;
                 transition: all 0.5s ease-in-out;
@@ -181,8 +182,8 @@ video {
     }
 
     #info-area {
-        background-color: c.$green;
-        border: 1px solid c.$green;
+        background-color: rgb(42, 42, 42);
+        border: 3px solid c.$green;
         border-radius: 30px;
         display: flex;
         order: 1;
@@ -214,7 +215,7 @@ video {
                     padding-right: 10px;
                 }
                 &:not(.role-text) {
-                    border-right: 1px solid white;
+                    border-right: 1px solid rgb(235, 235, 235);
                 }
             }
         }

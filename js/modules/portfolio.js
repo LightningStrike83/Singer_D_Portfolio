@@ -8,20 +8,21 @@ export function portfolio() {
     let featuredInfo = [
         {
             source : "featured-1",
-            text : "Pokemon Trainer Website",
-            projectID: "9"
+            text : "Littleroot Dreams",
+            projectID: "36"
         },
         
         {
             source : "featured-2",
-            text : "Create Your Own Pokedex",
-            projectID: "1"
+            text : "Foundation Sixty6",
+            projectID: "10"
         },
+        
 
         {
             source : "featured-3",
-            text : "Hoenn Music Mixer",
-            projectID: "5"
+            text : "Pokemon Trainer Website",
+            projectID: "9"
         },
     ]
 

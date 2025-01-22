@@ -16,9 +16,10 @@
     padding-bottom: 5px;
 }
 
-#main-image {
+#main-image-jl {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 #buttons {
@@ -40,7 +41,7 @@
     }
     transition: all 0.5s ease-in-out;
     &:hover {
-        background-color: white;
+        background-color: rgb(235, 235, 235);
         p {
             color: c.$green;
         }

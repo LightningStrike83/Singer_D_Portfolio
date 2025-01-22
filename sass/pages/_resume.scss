@@ -23,11 +23,11 @@
             padding-right: 20px;
             border: 3px solid c.$green;
             border-radius: 20px;
-            background-color: white;
-            color: black;
+            background-color: rgb(42, 42, 42);
             transition: all 0.5s ease-in-out;
             &:hover {
                 background-color: c.$green;
+                color: black;
             }
         }
     }
@@ -38,12 +38,13 @@
     h3 {
         font-size: 18px;
         text-align: center;
-        text-decoration: underline;
         cursor: pointer;
-        border: 1px solid c.$darkgreen;
+        border: 3px solid c.$darkgreen;
         padding: 10px;
         border-radius: 10px;
         transition: all ease-in-out 0.5s;
+        background-color: rgb(42, 42, 42);
+        line-height: 25px;
         &:hover {
             background-color: c.$green;
             color: black;
@@ -62,6 +63,7 @@
         h3 {
             text-align: center;
             margin-bottom: 20px;
+            font-size: 24px;
         }
         li {
             margin-bottom: 5px;
@@ -82,12 +84,12 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        p {
-            text-decoration: underline;
-        }
         ul {
             li {
                 margin-bottom: 20px;
+                a {
+                    text-decoration: none!important;
+                }
             }
         }
     }
@@ -108,12 +110,16 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        &:hover {
-            opacity: 50%;
-            transition: all 0.5s ease-in-out
-        }
     }
 }
+
+.resume-date {
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-bottom: 10px;
+}
+
 
 .resume-divider {
     border-bottom: 2px solid c.$darkgreen;
@@ -122,7 +128,15 @@
 
 
 .client-logo {
-    height: 20px;
+    height: 50px;
+    background-color: rgb(210, 210, 210);
+    padding: 10px;
+    border: 3px solid c.$darkgreen;
+    border-radius: 50px;
+    &:hover {
+        opacity: 50%;
+        transition: all 0.5s ease-in-out
+    }
 }
 
 #to-top {
@@ -151,6 +165,7 @@
     padding: 20px;
     border-radius: 20px;
     position: relative;
+    background-color: rgb(42, 42, 42);
 }
 
 #resume-quote {
@@ -211,7 +226,7 @@
     }
 
     .client-logo {
-        height: 30px;
+        height: 60px;
     }
 
     #more-skills {
@@ -236,12 +251,21 @@
     #resume-source {
         text-align: center;
     }
+    
+
+    #specialties, #training {
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 30px!important;
+        }
+    }
 }
 
 @media screen and (min-width: 1200px) {
     #resume-buttons {
         h3 {
-            font-size: 30px;
+            font-size: 28px;
             padding: 20px;
             border-radius: 30px;
         }
