@@ -19,6 +19,11 @@ export function resume() {
             quote: "I love working with Delilah because I always know with certainty the job will get done and it will get done well. She puts forth full effort on every project, and supports everyone she's working with. She's a true team player and a reliable, hard worker. Her dedication to success and her caring nature are truly commendable.",
             source: "-Sophia Westrop",
         },
+
+        {
+            quote: "If I could use a word to describe Delilah, it would be loyal, I don't think I've ever met a more loyal person. She also cares about people, she always makes sure that all the people in the room are comfortable and takes everyone's feelings into account. She definitely has her way with people, she knows how to find someone's strength and support them. She is very good with words too, she knows how important it is to properly communicate and express to avoid misunderstandings and conflicts. So, if you're looking for someone trust-worthy and reliable, Delilah is the key element that you've been searching for. She is definitely a hidden gem.",
+            source: "-Sunbiscuit",
+        },
     ]
 
     function openQualifications() {
