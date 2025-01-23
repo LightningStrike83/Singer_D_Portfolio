@@ -12,6 +12,8 @@
 
 #tab-area {
     padding: 0;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .tab {
@@ -36,6 +38,8 @@
 }
 
 #info-box {
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 0;
     margin-bottom: 50px;
     background-color: rgb(42, 42, 42);
@@ -147,5 +151,14 @@
     #about-image-container {
         display: flex;
         height: 600px;
+    }
+
+    
+    #tab-area, #info-box {
+        margin: 0 auto;
+    }
+
+    #info-box {
+        margin-bottom: 30px;
     }
 }

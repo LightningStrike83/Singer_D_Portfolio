@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-control" content="no-cache">
     <title>Thank You- Delilah Singer</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script defer src="js/thank-you.js"></script>
-    <script defer src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css?version=1.0">
+    <script defer src="js/thank-you.js?version=1.0"></script>
+    <script defer src="js/main.js?version=1.0"></script>
 </head>
 <body>
 

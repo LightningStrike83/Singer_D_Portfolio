@@ -53,14 +53,15 @@
 }
 
 #resume-divider {
-    display: none;
+    margin-bottom: 0;
 }
 
 #qualifications-section {
     display: none;
     margin-bottom: 30px;
-    #specialties, #training {
+    #specialties, #training, #upcoming {
         h3 {
+            padding-top: 20px;
             text-align: center;
             margin-bottom: 20px;
             font-size: 24px;
@@ -74,6 +75,10 @@
 #specialties {
     padding-right: 10px;
     border-right: 2px solid c.$darkgreen;
+}
+
+#training {
+    padding-bottom: 10px;
 }
 
 #resume-section {
@@ -206,6 +211,10 @@
     &:hover {
         color: c.$green;
     }
+}
+
+#upcoming {
+    border-top: 1px solid c.$green;
 }
 
 @media screen and (min-width: 768px) {

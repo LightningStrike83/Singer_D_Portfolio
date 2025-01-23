@@ -26,10 +26,9 @@
             align-items: center;
         }
         p {
-            padding-bottom: 5px;
-            padding-left: 5px;
-            padding-right: 5px;
+            padding: 5px;
             background-color: rgb(42, 42, 42);
+            width: 100%;
         }
         &:hover {
             img {

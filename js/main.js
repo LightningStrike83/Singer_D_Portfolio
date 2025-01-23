@@ -1,21 +1,21 @@
 console.log("Greetings and bienvenue!");
 
-import { hamburger } from "./modules/hamburger.js"
-import { index } from "./modules/index.js"
-import { genshinAPI } from "./modules/genshin-api.js";
-import { about } from "./modules/about.js";
-import { contact } from "./modules/contact.js";
-import { fullprojects } from "./modules/full-projects.js";
-import { justLightning } from "./modules/just-lightning.js";
-import { portfolio } from "./modules/portfolio.js";
-import { projectDetails } from "./modules/project-details.js";
-import { resume } from "./modules/resume.js";
-import { slider } from "./modules/slider.js";
-import { trivia } from "./modules/trivia.js";
-import { video } from "./modules/video.js";
-import { WTP } from "./modules/wtp.js";
-import { contactMessage } from "./modules/contact-message.js";
-import { randomPokemon } from "./modules/random-pokemon.js";
+import { hamburger } from "./modules/hamburger.js?version=1.0"
+import { index } from "./modules/index.js?version=1.0"
+import { genshinAPI } from "./modules/genshin-api.js?version=1.0";
+import { about } from "./modules/about.js?version=1.0";
+import { contact } from "./modules/contact.js?version=1.0";
+import { fullprojects } from "./modules/full-projects.js?version=1.0";
+import { justLightning } from "./modules/just-lightning.js?version=1.0";
+import { portfolio } from "./modules/portfolio.js?version=1.0";
+import { projectDetails } from "./modules/project-details.js?version=1.0";
+import { resume } from "./modules/resume.js?version=1.0";
+import { slider } from "./modules/slider.js?version=1.0";
+import { trivia } from "./modules/trivia.js?version=1.0";
+import { video } from "./modules/video.js?version=1.0";
+import { WTP } from "./modules/wtp.js?version=1.0";
+import { contactMessage } from "./modules/contact-message.js?version=1.0";
+import { randomPokemon } from "./modules/random-pokemon.js?version=1.0";
 
 if (document.body.dataset.page !== 'index') {
     hamburger()
