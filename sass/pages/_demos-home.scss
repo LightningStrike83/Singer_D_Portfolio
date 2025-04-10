@@ -12,15 +12,13 @@
     margin-bottom: 50px;
     padding: 0;
     .demo-box {
-        max-width: 320px;
+        width: 45%;
         margin-bottom: 30px;
         display: flex;
         justify-content: center;
-        margin-left: 20px;
-        margin-right: 20px;
         border: 1px solid c.$green;
         a {
-            
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -29,6 +27,7 @@
             padding: 5px;
             background-color: rgb(42, 42, 42);
             width: 100%;
+            height: 100%;
         }
         &:hover {
             img {
@@ -62,6 +61,7 @@
 @media screen and (min-width: 768px) {
     #demo-selection {
         .demo-box {
+            width: 30%;
             p {
                 font-size: 18px;
             }
@@ -73,7 +73,7 @@
     #demo-selection {
         .demo-box {
             p {
-                font-size: 28px;
+                font-size: 20px;
             }
         }
     }

@@ -1,4 +1,6 @@
 export function genshinAPI() {
+    gsap.registerPlugin(ScrollToPlugin);
+
     const characterBox = document.querySelector("#character-box")
     const detailsBox = document.querySelector("#details-box")
     const detailsTemplate = document.querySelector("#details-template")
@@ -50,6 +52,8 @@ export function genshinAPI() {
     characterPopulation()
     
     function characterDetails(){
+        gsap.to(window, { duration: 1, scrollTo: ("#details-box")})
+
         const characterID = this.dataset.member
         const p = document.createElement("p")
 
@@ -94,5 +98,8 @@ export function genshinAPI() {
         })
         .catch()
     }
+
+    document.addEventListener("DOMContentLoaded", (event) => {
+        gsap.registerPlugin(ScrollToPlugin)});
 }
 

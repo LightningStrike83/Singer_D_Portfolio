@@ -14,15 +14,15 @@ export function portfolio() {
         
         {
             source : "featured-2",
-            text : "Foundation Sixty6",
-            projectID: "10"
+            text : "EmblemCon",
+            projectID: "38"
         },
         
 
         {
             source : "featured-3",
-            text : "Pokemon Trainer Website",
-            projectID: "9"
+            text : "Foundation Sixty6",
+            projectID: "10"
         },
     ]
 
