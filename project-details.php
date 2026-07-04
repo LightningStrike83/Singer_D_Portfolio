@@ -14,6 +14,9 @@ $related = explode(",", $row['relatedproject']);
 $imagedesc = explode(",", $row['imagedesc']);
 
 $softwarelist = array_unique($software);
+$newsoftware = array_values($softwarelist);
+sort($newsoftware);
+
 $imageslist =  array_unique($images);
 $new = array_values($imageslist);
 sort($new);
@@ -38,7 +41,7 @@ $stmt = null;
     <title>Project Details- Delilah Singer</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/main.css?version=1.0">
+    <link rel="stylesheet" href="css/main.css?version=1.1">
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicom/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicom/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicom/favicon-16x16.png">
@@ -47,7 +50,7 @@ $stmt = null;
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
-    <script type="module" src="js/main.js?version=1.0"></script>
+    <script type="module" src="js/main.js?version=1.1"></script>
 </head>
 <body data-page="projectdetails">
     <h1 class="hidden">Project Details</h1>
@@ -118,21 +121,16 @@ $stmt = null;
       <div id="desc-info" class="col-span-2 m-col-span-5">
         <?php 
         
-        echo '<div id="text-con"><p class="project-data-title">Project Name:</p><p class="project-data-info">'.$row['title'].'</p><br><br><p class="project-data-title">Software Used:<br></p><p class="project-data-info"> ';
+        echo '<div id="text-con"><p class="project-data-title">Project Name:</p><p class="project-data-info">'.$row['title'].'</p><br><br><p class="project-data-title">Software & Technologies Used:<br></p><p class="project-data-info"> ';
         
         
-        for($i =0; $i < count($softwarelist); $i++ ) {
-
-          if ($i === count($softwarelist)-1) {
-          echo  $softwarelist[$i];
-          } else {
-            echo  $softwarelist[$i].', ';
-          }
-        }
+        for ($i = 0; $i < count($newsoftware); $i++) {
+          echo '-' . $newsoftware[$i] . '<br>';
+      }
         
         
         
-        echo '<br><br></p><p class="project-data-title">Client:</p><p class="project-data-info">'.$row['client_name'].'</p><br><br><p class="project-data-title">Link:</p><a class="project-data-info" target="_blank" href="'.$row['link'].'">'.$row['title'].'</a><br><br><br><p class="project-data-title">Description:<br></p><p class="project-data-info">'.$row['description'].'</p></div>';
+        echo '<br></p><p class="project-data-title">Client:</p><p class="project-data-info">'.$row['client_name'].'</p><br><br><p class="project-data-title">Link:</p><a class="project-data-info" target="_blank" href="'.$row['link'].'">'.$row['title'].'</a><br><br><br><p class="project-data-title">Description:<br></p><p class="project-data-info">'.$row['description'].'</p></div>';
         ?>
       </div>
     </section>

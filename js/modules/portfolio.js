@@ -7,11 +7,17 @@ export function portfolio() {
 
     let featuredInfo = [
         {
+            source : "featured-2",
+            text : "EmblemCon",
+            projectID: "38"
+        },
+
+        {
             source : "featured-1",
             text : "Littleroot Dreams",
             projectID: "36"
         },
-        
+
         {
             source : "featured-2",
             text : "EmblemCon",

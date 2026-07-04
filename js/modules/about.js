@@ -44,30 +44,30 @@ export function about() {
         },
 
         {
-            heading : "Software Trained In",
+            heading : "Software Preferences",
             text : "VS Code, Adobe Creative Suite, Wamp"
         },
     ]
 
     let personalInformation = [
         {
-            heading : "Favourite Movie:",
-            text: "Detective Pikachu",
+            heading : "Favourite Movies:",
+            text: "-Detective Pikachu<br>-Deadpool & Wolverine<br>-A Silent Voice",
         },
 
         {
-            heading : "Favourite TV Show",
-            text : "Brooklyn Nine-Nine"
+            heading : "Favourite TV Shows",
+            text : "-Brooklyn Nine-Nine<br>-She-Ra and the Princesses of Power<br>-Wandering Son"
         },
 
         {
-            heading : "Favourite Game",
-            text : "Pokemon Let's Go Eevee"
+            heading : "Favourite Games",
+            text : "-Pokemon Let's Go Eevee<br>-Telltale's The Walking Dead<br>-The Last of Us Pt. 1"
         },
 
         {
-            heading : "Favourite Song",
-            text : "Show Yourself- Idina Menzel"
+            heading : "Favourite Songs",
+            text : "-Show Yourself- Idina Menzel<br>-Juvenile- Hatsune Miku<br> -Fearless- Taylor Swift<br>-Gravity- Jessica Vosk & Alex Brightman"
         },
 
         {
@@ -77,7 +77,7 @@ export function about() {
 
         {
             heading : "Hobbies",
-            text : "Cosplaying, video games, card collecting"
+            text : "-Writing<br>-Cosplaying<br>-Video games"
         },
     ]
 
@@ -142,7 +142,7 @@ export function about() {
             bioHeading[index].textContent = info.heading
 
             const bioText = document.querySelectorAll(".bio-text")
-            bioText[index].textContent = info.text
+            bioText[index].innerHTML = info.text
         })
 
         bioChange.forEach(change => {
