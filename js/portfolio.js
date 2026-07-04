@@ -7,28 +7,21 @@ export function portfolio() {
 
     let featuredInfo = [
         {
-            source : "featured-2",
-            text : "EmblemCon",
-            projectID: "38"
-        },
-
-        {
             source : "featured-1",
-            text : "Littleroot Dreams",
-            projectID: "36"
-        },
-
-        {
-            source : "featured-2",
-            text : "EmblemCon",
-            projectID: "38"
+            text : "Sunbiscuit Portfolio",
+            projectID: "8"
         },
         
+        {
+            source : "featured-2",
+            text : "Create Your Own Pokedex",
+            projectID: "1"
+        },
 
         {
             source : "featured-3",
-            text : "Foundation Sixty6",
-            projectID: "10"
+            text : "Hoenn Music Mixer",
+            projectID: "5"
         },
     ]
 
