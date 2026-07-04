@@ -4,6 +4,7 @@ export function contactMessage() {
     const contactForm = document.querySelector("#contact-d")
     const feedback = document.querySelector("#feedback-area")
     const messageConfirm = document.querySelector("#confirm-send")
+    const privacyCheckbox = document.querySelector("#privacy")
 
     function contactFeedback(event) {
         event.preventDefault();
@@ -13,80 +14,93 @@ export function contactMessage() {
 
         console.log(url)
 
-        runningChibi.src = "../images/pixel_run.gif"
-        runningChibi.setAttribute("id", "running-chibi")
-        messageConfirm.appendChild(runningChibi)
+        if (privacyCheckbox.checked === true) {
+            runningChibi.src = "../images/pixel_run.gif"
+            runningChibi.setAttribute("id", "running-chibi")
+            messageConfirm.appendChild(runningChibi)
 
-        window.scrollTo({top: 2000, behavior: "smooth"})
-        //gsap.to(window, {duration: 1, scrollTo:{messageConfirm}})
-        
+            window.scrollTo({top: 2000, behavior: "smooth"})
+            //gsap.to(window, {duration: 1, scrollTo:{messageConfirm}})
+            
 
-        const formData =
-        "pname=" + thisform.elements.preferred_name.value +
-        "&email=" + thisform.elements.email.value +
-        "&phone=" + thisform.elements.phone.value +
-        "&website=" + thisform.elements.website.value +
-        "&subject=" + thisform.elements.subject.value +
-        "&message=" + thisform.elements.comments.value;
+            const formData =
+            "pname=" + thisform.elements.preferred_name.value +
+            "&email=" + thisform.elements.email.value +
+            "&phone=" + thisform.elements.phone.value +
+            "&website=" + thisform.elements.website.value +
+            "&subject=" + thisform.elements.subject.value +
+            "&message=" + thisform.elements.comments.value;
 
-        fetch (url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: formData
-        })
+            fetch (url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData
+            })
 
-        .then(response => response.json())
-        .then(responseText => {
-            feedback.innerHTML = "";
+            .then(response => response.json())
+            .then(responseText => {
+                feedback.innerHTML = "";
 
-            if (responseText.errors) {
-                const obj = responseText.errors
-                const value = Object.values(obj);
-                const errorRedirect = document.createElement("p")
+                if (responseText.errors) {
+                    const obj = responseText.errors
+                    const value = Object.values(obj);
+                    const errorRedirect = document.createElement("p")
+
+                    window.scrollTo({top: 0, behavior: "smooth"})
+
+                    messageConfirm.innerHTML = ""
+                    errorRedirect.textContent = "Sorry, something didn't go as planned. Please check the message at the top!"
+                    messageConfirm.appendChild(errorRedirect)
+
+                    value.forEach(valueInfo => {
+                        const p = document.createElement("p")
+                        p.textContent = valueInfo
+                        feedback.appendChild(p)
+
+                    })
+
+                } else {
+                    const chibiRun = document.querySelector("#running-chibi");
+                    messageConfirm.innerHTML = ""
+
+                    gsap.timeline({repeat:-1})
+                    gsap.to(chibiRun, 2, {x:500})
+
+                    contactForm.reset();
+                    const sendConfirm = document.createElement("p")
+                    sendConfirm.textContent = responseText.message
+                    messageConfirm.appendChild(sendConfirm)
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                feedback.innerHTML = ""
+                const errorMessage = document.createElement("p")
+
+                errorMessage.textContent = "Sorry, something went wrong!"
+
+                feedback.appendChild(errorMessage)
+
+                //gsap.to(window, {duration: 1, scrollTo:{y:0}})
 
                 window.scrollTo({top: 0, behavior: "smooth"})
 
                 messageConfirm.innerHTML = ""
-                errorRedirect.textContent = "Sorry, something didn't go as planned. Please check the message at the top!"
-                messageConfirm.appendChild(errorRedirect)
-
-                value.forEach(valueInfo => {
-                    const p = document.createElement("p")
-                    p.textContent = valueInfo
-                    feedback.appendChild(p)
-
-                })
-
-            } else {
-                const chibiRun = document.querySelector("#running-chibi");
-                messageConfirm.innerHTML = ""
-
-                gsap.timeline({repeat:-1})
-                gsap.to(chibiRun, 2, {x:500})
-
-                contactForm.reset();
-                const sendConfirm = document.createElement("p")
-                sendConfirm.textContent = responseText.message
-                messageConfirm.appendChild(sendConfirm)
-            }
-        })
-        .catch(error => {
-            console.log(error)
+            })
+        } else {
             feedback.innerHTML = ""
-            const errorMessage = document.createElement("p")
+                const errorMessage = document.createElement("p")
 
-            errorMessage.textContent = "Sorry, something went wrong!"
+                errorMessage.textContent = "Please agree to the privacy policy, thank you"
 
-            feedback.appendChild(errorMessage)
+                feedback.appendChild(errorMessage)
 
-            //gsap.to(window, {duration: 1, scrollTo:{y:0}})
+                window.scrollTo({top: 0, behavior: "smooth"})
 
-            window.scrollTo({top: 0, behavior: "smooth"})
-
-            messageConfirm.innerHTML = ""
-        })
+                messageConfirm.innerHTML = ""
+        }
     }
     contactForm.addEventListener("submit", contactFeedback)
 }
