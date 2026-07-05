@@ -25,7 +25,7 @@ export function about() {
 
         {
             heading : "Experience",
-            text : "Since 2011"
+            text : "Since 2011;<br>Studied in 2022 and graduated in 2024"
         },
 
         {
@@ -35,7 +35,7 @@ export function about() {
 
         {
             heading : "Other Skills",
-            text : "Video editing, asset creation, database production"
+            text : "Video editing, asset creation, database management"
         },
 
         {
@@ -67,7 +67,7 @@ export function about() {
 
         {
             heading : "Favourite Songs",
-            text : "-Show Yourself- Idina Menzel<br>-Juvenile- Hatsune Miku<br> -Fearless- Taylor Swift<br>-Gravity- Jessica Vosk & Alex Brightman"
+            text : "-Show Yourself- Idina Menzel<br>-Juvenile- Hatsune Miku<br> -Fearless- Taylor Swift"
         },
 
         {
@@ -86,10 +86,10 @@ export function about() {
             const clone = bioTemplate.content.cloneNode(true);
 
             const bioHeading = clone.querySelector(".bio-heading");
-            bioHeading.textContent = info.heading
+            bioHeading.innerHTML = info.heading
             
             const bioText = clone.querySelector(".bio-text");
-            bioText.textContent = info.text
+            bioText.innerHTML = info.text
 
             bioInfo.appendChild(clone);
         })
@@ -139,7 +139,7 @@ export function about() {
 
         personalInformation.forEach((info, index) => {
             const bioHeading = document.querySelectorAll(".bio-heading");
-            bioHeading[index].textContent = info.heading
+            bioHeading[index].innerHTML = info.heading
 
             const bioText = document.querySelectorAll(".bio-text")
             bioText[index].innerHTML = info.text
